@@ -1,0 +1,89 @@
+/* General styles for the Contact Us form */
+.contact-us {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #0a0a0a; /* Adjust the background color here */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  color: #311919; /* Ensure text color is visible against the background */
+}
+
+.contact-us h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #f8f7f8;
+}
+
+.contact-us form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: #030303;
+}
+
+.contact-us label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #f7f5f5;
+}
+
+.contact-us input,
+.contact-us textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #fffefe;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.contact-us input:focus,
+.contact-us textarea:focus {
+  border-color: #282626;
+}
+
+.contact-us button {
+  padding: 10px 20px;
+  background-color: #e95009;
+  color: #fdfbfb;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-us button:hover {
+  background-color: #f3760f;
+}
+
+/* Styles for the submission success message */
+.submission-success {
+  text-align: center;
+}
+
+.submission-success h3 {
+  margin-top: 20px;
+  color: #faf9f9;
+}
+
+.tick-mark {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #4caf50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.tick-mark svg {
+  width: 30px;
+  height: 30px;
+  stroke: #fcf9f9;
+  stroke-width: 5;
+  fill: none;
+}

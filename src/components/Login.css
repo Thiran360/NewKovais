@@ -1,0 +1,190 @@
+/* ====== Login Page Styling ====== */
+
+.logins-container {
+  height: 100vh;
+  width: 100%;
+  /* background-image: url('./Image/hotelImage.jpg'); */
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+  /* background-color: white; */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px); /* Optional: for a classy effect */
+}
+.logins-card {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+  
+  .logins-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .logins-title {
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    color: #2d3748;
+    margin-bottom: 20px;
+  }
+  
+  .logins-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a5568;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .input-field:focus {
+    border-color: #4299e1;
+    box-shadow: 0 0 5px rgba(66, 153, 225, 0.5);
+  }
+  
+  .error-message {
+    font-size: 12px;
+    color: red;
+    margin-top: 4px;
+    text-align: center;
+  }
+  
+  .logins-button {
+    background: #4299e1;
+    color: white;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border: none;
+    font-size: 16px;
+  }
+  
+  .logins-button:hover {
+    background: #2b6cb0;
+  }
+  
+  .logins-footer {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #4a5568;
+  }
+  
+  .signup-link {
+    color: #3182ce;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .signup-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* ====== RESPONSIVE DESIGN ====== */
+  
+  /* Tablets & Small Screens */
+  @media (max-width: 768px) {
+    .logins-card {
+      padding: 25px;
+      width: 90%;
+      max-width: 350px;
+    }
+  
+    .logins-title {
+      font-size: 22px;
+    }
+  
+    .logins-button {
+      font-size: 15px;
+      padding: 10px;
+    }
+  }
+  
+  /* Mobile Devices */
+  @media (max-width: 480px) {
+    .logins-card {
+      padding: 20px;
+      max-width: 90%;
+    }
+  
+    .logins-title {
+      font-size: 20px;
+    }
+  
+    .input-field {
+      padding: 10px;
+    }
+  
+    .logins-button {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .signup-link {
+      font-size: 12px;
+    }
+  }
+  
+  .logouts-button {
+    background-color: #ff4d4d; /* Red color for attention */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .logouts-button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+  }
+  
+  .logouts-button:active {
+    background-color: #990000; /* Even darker red when clicked */
+  }
+  
+  .logouts-button svg {
+    width: 20px;
+    height: 20px;
+    fill: white; /* Ensures the icon stays visible */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .logouts-button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  

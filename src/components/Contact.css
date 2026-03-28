@@ -1,0 +1,225 @@
+.contact-page {
+  min-height: 100vh;
+}
+
+.contact-header {
+  background: linear-gradient(135deg, #dc3546a6 0%, #fd7d149f 100%);
+}
+
+.contact-hero {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.contact-info-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-info-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+}
+
+.contact-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  transition: all 0.3s ease;
+}
+
+.contact-info-card:hover .contact-icon-wrapper {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #dc3546ba, #fd7d14b5) !important;
+}
+
+.contact-info-card:hover .contact-icon-wrapper .text-danger,
+.contact-info-card:hover .contact-icon-wrapper .text-success,
+.contact-info-card:hover .contact-icon-wrapper .text-info,
+.contact-info-card:hover .contact-icon-wrapper .text-warning {
+  color: white !important;
+}
+
+.contact-form-section .card {
+  border-radius: 20px;
+}
+
+.contact-form-section .form-control,
+.contact-form-section .form-select {
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+  padding: 12px 20px;
+}
+
+.contact-form-section .form-control:focus,
+.contact-form-section .form-select:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.contact-form-section .form-label {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 8px;
+}
+
+.company-info {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.stat-box {
+  transition: transform 0.3s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-5px);
+}
+
+.contact-method-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-buttons .btn {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-buttons .btn:hover {
+  transform: translateY(-3px);
+  background-color: rgba(255,255,255,0.2) !important;
+}
+
+.location-section {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.highlight-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.highlight-item {
+  transition: transform 0.3s ease;
+}
+
+.highlight-item:hover {
+  transform: translateX(10px);
+}
+
+.map-placeholder {
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+}
+
+.why-choose {
+  background: linear-gradient(135deg, #212529 0%, #495057 100%);
+}
+
+.feature-icon-large {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.3s ease;
+}
+
+.why-choose .col-md-3:hover .feature-icon-large {
+  transform: scale(1.1);
+}
+
+.business-hours {
+  background: rgba(255,255,255,0.05);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+@media (max-width: 768px) {
+  .contact-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .display-5 {
+    font-size: 2rem !important;
+  }
+  
+  .contact-info-card {
+    margin-bottom: 20px;
+  }
+  
+  .feature-icon-large {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .social-buttons {
+    justify-content: center;
+  }
+
+}
+@keyframes the {
+    
+    0%{
+    background-image: url('https://wallpapers.com/images/hd/barber-shop-background-c8pq8le29lkcb64m.jpg');
+    }
+
+    50%{
+    background-image: url('https://s.alicdn.com/@sc04/kf/Hb223ef739b0947faaafe563e35390f6aU.jpg');
+    }
+
+    100%{
+    background-image: url('https://www.marshallsonline.in/smallImgOnProd/ZA%209123.jpg?id=10');
+
+    }
+}
+#imggg{
+    animation: the;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+  
+}
+#imgggbg{
+    width: 700px;
+    height: 500px;
+    border-radius: 20px;
+    position: relative;
+}
+
+/* Payment Processor Notice Styles */
+.payment-processor-notice {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.payment-processor-notice:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Ensure the notice is visible but subtle */
+.payment-processor-notice .text-muted {
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .payment-processor-notice {
+    padding: 1rem 0.5rem !important;
+  }
+  
+  .payment-processor-notice .text-light {
+    font-size: 0.9rem;
+  }
+  
+  .payment-processor-notice .text-muted {
+    font-size: 0.8rem;
+  }
+}

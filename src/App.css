@@ -1,0 +1,916 @@
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+  --primary-color: #007ad8;
+  --secondary-color: #ff4081;
+  --background-dark: #121212;
+  --background-light: #282c34;
+  --input-background: #333;
+  --input-border: #444;
+  --input-focus-border: #1a73e8;
+  --font-family: 'Arial', sans-serif;
+}
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+span,
+div {
+  font-family: var(--font-family), sans-serif;
+  /* Ensure sans-serif is applied */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+
+  /* Hide scrollbar in WebKit browsers (Chrome, Safari, Edge) */
+  body::-webkit-scrollbar {
+    display: none;
+    /* Hides scrollbar */
+  }
+
+  /* This will hide both scrollbars globally */
+}
+
+body {
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  font-family: var(--font-family);
+}
+
+.container,
+.loading h2,
+.company-name,
+.navbar a,
+.login-card h2,
+.description,
+.username,
+.card-button,
+.footer p,
+.hero-header,
+.hero-para {
+  font-family: var(--font-family);
+  /* Sans-serif for all text elements */
+}
+
+.header,
+.navbar,
+.login-card,
+.profile-bar,
+.main-content,
+.nft-card,
+.footer {
+  font-family: var(--font-family);
+  /* All content uses sans-serif */
+}
+
+/* Additional elements using sans-serif */
+.header .navbar a,
+.login-button,
+.toggle-button,
+.login-card button {
+  font-family: var(--font-family);
+  /* Ensure buttons also use sans-serif */
+}
+
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff8e7;
+  /* light neutral tone */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.hero-header,
+.hero-para {
+  font-family: var(--font-family);
+  /* Hero section text */
+}
+
+.profile-nav a,
+.profile-button,
+.card-button,
+.nft-card hr,
+.creator ins,
+.duration ins {
+  font-family: var(--font-family);
+  /* Apply to other elements */
+}
+
+@media (max-width: 1200px),
+(max-width: 992px),
+(max-width: 768px),
+(max-width: 576px) {
+
+  .navbar a,
+  .hero-header,
+  .hero-para {
+    font-family: var(--font-family);
+    /* Responsively apply sans-serif */
+  }
+}
+
+.hero {
+  /* height: 80vh; */
+  margin-top: -105px;
+}
+
+
+/* @keyframes spin {
+  0%, 100% {
+    box-shadow: .2em 0px 0 0px currentcolor;
+  }
+  12% {
+    box-shadow: .2em .2em 0 0 currentcolor;
+  }
+  25% {
+    box-shadow: 0 .2em 0 0px currentcolor;
+  }
+  37% {
+    box-shadow: -.2em .2em 0 0 currentcolor;
+  }
+  50% {
+    box-shadow: -.2em 0 0 0 currentcolor;
+  }
+  62% {
+    box-shadow: -.2em -.2em 0 0 currentcolor;
+  }
+  75% {
+    box-shadow: 0px -.2em 0 0 currentcolor;
+  }
+  87% {
+    box-shadow: .2em -.2em 0 0 currentcolor;
+  }
+} */
+
+/* .loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #fff;
+}
+
+.loading h2 {
+  margin-top: 16px;
+} */
+
+/* Clean loading animation */
+.simple-loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #eee;
+  border-top: 6px solid #ff9800;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 70px;
+  background: rgba(255, 255, 255, 0.1);
+  /* Semi-transparent background */
+  backdrop-filter: blur(50px);
+  /* Blur effect */
+  color: black;
+  position: sticky;
+  width: 100%;
+  /* Full width of the viewport */
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+.header .logo {
+  max-height: 40px;
+  border-radius: 100px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.company-name {
+  font-size: 1.8rem;
+  font-weight: bolder;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  /* Align items to the right */
+  align-items: center;
+  width: 100%;
+}
+
+.navbar .nav-link {
+  font-size: large;
+  font-weight: bolder;
+  color: #333;
+  margin: 0 15px;
+  /* Add spacing between links */
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #f39109;
+}
+
+.navbar a {
+  text-decoration: none;
+  padding: 8px 16px;
+  color: rgba(14, 14, 14, 0.8);
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.navbar a:hover {
+  background: linear-gradient(to right, #d2c6dd, #f39109);
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* -webkit-text-fill-color: transparent; color: transparent; if gradient text is desired */
+  font-weight: bolder;
+}
+
+.nav-link {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  /* Makes underline match text width */
+  padding-bottom: 5px;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #3498db;
+  /* Change color */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+
+.login-button {
+  background: #0c4d5f;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.login-button:hover {
+  background: linear-gradient(to right, #8e2de2, #f39109);
+  color: #fbf9f9;
+}
+
+
+/* Light Theme */
+.login-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(13, 1, 1, 0.852);
+  /* Light semi-transparent background */
+  z-index: 1001;
+}
+
+.login-card {
+  background: #fff;
+  /* Light background for the card */
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  color: #333;
+  /* Darker text for better contrast */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  /* Softer shadow for a light theme */
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #333;
+  /* Darker color for visibility */
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  /* Darker text */
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-card input {
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  /* Lighter input border */
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  /* Light background for inputs */
+  color: #333;
+  /* Darker input text */
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.login-card input:focus {
+  border-color: #888;
+  /* Focused input border color */
+  outline: none;
+}
+
+.login-card button {
+  background: #0c4d5f;
+  /* Primary button color (light green) */
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-card button:hover {
+  background: #7fddfa;
+  /* Darker green on hover */
+  color: #121212;
+}
+
+.toggle-button {
+  width: 335px;
+  height: 43px;
+  background-color: #f0f0f0;
+  /* Light background for toggle button */
+  color: #333;
+  /* Dark text for the toggle */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.toggle-button:hover {
+  background-color: #e0e0e0;
+  /* Slightly darker on hover */
+}
+
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5rem 2rem 2rem;
+  margin-top: 4rem;
+}
+
+.nft-card {
+  width: 300px;
+  max-width: 400px;
+  margin: 1rem;
+  border: 1px solid #ffffff22;
+  background: linear-gradient(0deg, var(--background-dark) 0%, var(--background-light) 100%);
+  box-shadow: 0 7px 20px 5px #00000088;
+  border-radius: .7rem;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  overflow: hidden;
+  transition: .5s all;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.nft-card:hover {
+  border: 1px solid #ffffff44;
+  box-shadow: 0 7px 50px 10px #000000aa;
+  transform: scale(1.02);
+  filter: brightness(1.2);
+}
+
+.nft-card hr {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #88888855;
+  margin-top: 0;
+}
+
+.tokenImage {
+  border-radius: .5rem;
+  max-width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.description {
+  margin: .5rem 0;
+  color: #a89ec9;
+}
+
+.tokenInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  color: #ee83e5;
+  font-weight: 700;
+}
+
+.price ins {
+  margin-left: -.3rem;
+  margin-right: .5rem;
+}
+
+.duration {
+  display: flex;
+  align-items: center;
+  color: #a89ec9;
+  margin-right: .2rem;
+}
+
+.duration ins {
+  margin: .5rem;
+  margin-bottom: .4rem;
+}
+
+.creator {
+  display: flex;
+  align-items: center;
+  margin-top: .2rem;
+  margin-bottom: .3rem;
+}
+
+.creator ins {
+  color: #a89ec9;
+  text-decoration: none;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ffffff22;
+  padding: .3rem;
+  margin: 0;
+  margin-right: .5rem;
+  border-radius: 100%;
+  box-shadow: inset 0 0 0 4px #000000aa;
+}
+
+.wrapper img {
+  border-radius: 100%;
+  border: 1px solid #ffffff22;
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  margin: 0;
+}
+
+/* Profile Bar Styling */
+.profile-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #f4f4f4;
+  border-radius: 50px;
+  border-bottom: 1px solid #ddd;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.username {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #1a73e8;
+  margin-right: 5px;
+}
+
+.profile-nav {
+  display: flex;
+  gap: 15px;
+}
+
+.profile-nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+.profile-button {
+  background-color: #ff6f61;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 8px 16px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.profile-button:hover {
+  background-color: #e55b50;
+}
+
+
+.nft-card::before {
+  position: fixed;
+  content: "";
+  box-shadow: 0 0 100px 40px #ffffff08;
+  top: -10%;
+  left: -100%;
+  transform: rotate(-45deg);
+  height: 60rem;
+  transition: .7s all;
+}
+
+.nft-card:hover {
+  border: 1px solid #ffffff44;
+  box-shadow: 0 7px 50px 10px #000000aa;
+  transform: scale(1.02);
+  /* Slightly less scaling for a subtle effect */
+  filter: brightness(1.2);
+}
+
+.nft-card:hover::before {
+  filter: brightness(.5);
+  top: -100%;
+  left: 200%;
+}
+
+/* Button styles */
+.card-button {
+  width: 90%;
+  /* Make button width responsive to card width */
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: none;
+  margin-top: 1rem;
+  /* Spacing from other elements */
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.card-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  /* Slight lift effect */
+}
+
+
+.hero {
+  background: linear-gradient(135deg, #1c92d2, #f2fcfe);
+  width: 100vw;
+
+}
+
+/* styles.css or your relevant CSS file */
+.hover-effect {
+  transition: transform 0.3s ease;
+}
+
+.hover-effect:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.span-text {
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  /* Teal to Light Green */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+.hero-header {
+  margin-top: 30px;
+}
+
+.hero-para {
+  line-height: 2;
+  margin-top: 70px;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  color: black;
+}
+
+.footer {
+  background-color: #282c34;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.footer a {
+  color: #61dafb;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* 
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+} */
+
+/* When page has no scroll (force footer to always show) */
+/* .footer.always-show {
+  transform: translateY(0);
+} */
+
+/* Hide footer by default if page is scrollable */
+/* .footer.hide {
+  transform: translateY(100%);
+} */
+
+/* Show footer when user scrolls down */
+/* .footer.show {
+  transform: translateY(0);
+} */
+
+
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .header {
+    width: 100%;
+    padding: 1rem;
+
+  }
+
+  .hero-header {
+    margin-top: 100px;
+  }
+
+  .hero-para {
+    font-size: 1.2rem;
+    margin-top: 40px;
+  }
+
+  .nft-card {
+    width: 280px;
+    margin: 1rem 0.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .header {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .hero {
+    height: 60vh;
+  }
+
+  .main-content {
+    padding: 4rem 1rem 1rem;
+  }
+
+  .nft-card {
+    width: 250px;
+    margin: 0.5rem;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar a {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .main-content {
+    padding: 3rem 1rem;
+    flex-direction: column;
+  }
+
+  .nft-card {
+    width: 200px;
+  }
+
+  .hero-header {
+    font-size: 1.5rem;
+  }
+
+  .hero-para {
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar a {
+    padding: 10px;
+    margin: 0.5rem 0;
+    /* float: none; */
+    /* width: 100%; */
+    text-align: center;
+    justify-content: center;
+
+  }
+
+  .main-content {
+    padding: 2rem 0.5rem;
+  }
+
+  .nft-card {
+    width: 180px;
+  }
+
+  .hero-header {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .hero-para {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .footer-sec {
+    background-color: #000000;
+    /* Solid black background */
+    color: #ffffff;
+    /* White text color for contrast */
+    padding: 20px;
+    /* Add spacing inside the footer */
+    font-size: 14px;
+    /* Professional font size */
+    text-align: center;
+    /* Center align the text */
+    font-family: Arial, sans-serif;
+    /* Clean, professional font */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    /* Subtle shadow for depth */
+    border-top: 2px solid #444;
+    /* Optional border for separation */
+  }
+
+  .footer-sec p {
+    margin: 0;
+    /* Remove default margins */
+    line-height: 1.6;
+    /* Improve readability */
+  }
+
+  .footer-sec a {
+    color: #4ca1af;
+    /* Professional link color */
+    text-decoration: none;
+    /* Remove underline */
+    font-weight: bold;
+    /* Make links stand out */
+  }
+
+  .footer-sec a:hover {
+    color: #ffd700;
+    /* Highlight link on hover with gold color */
+    text-decoration: underline;
+    /* Optional underline on hover */
+  }
+
+
+}
+
+.bird {
+  display: flex;
+  justify-content: space-between;
+}
+
+.insert {
+  display: flex;
+  justify-content: center;
+  padding-right: 40px;
+
+}

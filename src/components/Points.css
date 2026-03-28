@@ -1,0 +1,684 @@
+/* LoyaltyPoints.css */
+.loyalty-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+}
+
+/* Header Section */
+.loyalty-header {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.loyalty-hero {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.loyalty-hero-icon {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.loyalty-hero-icon .icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.loyalty-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+.loyalty-subtitle {
+  font-size: 1.125rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Points Balance Card */
+.points-balance-card {
+  background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+}
+
+.points-balance-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.points-balance-main {
+  margin-bottom: 1rem;
+}
+
+.points-amount {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.points-label {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.points-value {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.points-rate {
+  opacity: 0.8;
+  font-size: 0.75rem;
+}
+
+/* Navigation Tabs */
+.loyalty-tabs {
+  display: flex;
+  background: white;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.loyalty-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  border: none;
+  background: none;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.loyalty-tab:hover {
+  color: #4f46e5;
+  background: #f8fafc;
+}
+
+.loyalty-tab.active {
+  color: #4f46e5;
+  background: #eef2ff;
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.1);
+}
+
+.loyalty-tab .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Tab Content */
+.loyalty-content {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.tab-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Info Grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-card {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.info-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: white;
+}
+
+.info-icon.primary { background: #4f46e5; }
+.info-icon.success { background: #10b981; }
+.info-icon.warning { background: #f59e0b; }
+.info-icon.info { background: #3b82f6; }
+
+.info-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+.info-card p {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0 0 1rem 0;
+}
+
+.info-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* Quick Actions */
+.quick-actions-section h3 {
+  margin-bottom: 1rem;
+}
+
+.quick-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-btn.primary {
+  background: #4f46e5;
+  color: white;
+}
+
+.action-btn.primary:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+}
+
+.action-btn.secondary {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+.action-btn.secondary:hover {
+  background: #e2e8f0;
+}
+
+.action-btn.outline {
+  background: white;
+  color: #4f46e5;
+  border: 2px solid #e2e8f0;
+}
+
+.action-btn.outline:hover {
+  border-color: #4f46e5;
+}
+
+/* History Section */
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.history-stats {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+}
+
+.transaction-item:hover {
+  background: #f1f5f9;
+}
+
+.transaction-icon {
+  flex-shrink: 0;
+}
+
+.icon-success {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #d1fae5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #059669;
+}
+
+.icon-danger {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #fee2e2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dc2626;
+  transform: rotate(45deg);
+}
+
+.transaction-details {
+  flex: 1;
+}
+
+.transaction-description {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.transaction-date {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.transaction-points {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.transaction-points.credited {
+  color: #059669;
+}
+
+.transaction-points.debited {
+  color: #dc2626;
+}
+
+/* Earn Grid */
+.earn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.earn-card {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border-left: 4px solid #4f46e5;
+  transition: all 0.2s;
+}
+
+.earn-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.earn-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.earn-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #eef2ff;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4f46e5;
+}
+
+.earn-points {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+.earn-card h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+.earn-card p {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.earning-tips {
+  background: #f0f9ff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border-left: 4px solid #0ea5e9;
+}
+
+.earning-tips h4 {
+  color: #0369a1;
+  margin: 0 0 1rem 0;
+}
+
+.earning-tips ul {
+  color: #64748b;
+  padding-left: 1.5rem;
+}
+
+.earning-tips li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Redeem Grid */
+.redeem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.redeem-card {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 2px solid #e2e8f0;
+  transition: all 0.2s;
+}
+
+.redeem-card:hover {
+  border-color: #4f46e5;
+  transform: translateY(-2px);
+}
+
+.redeem-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.redeem-card h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.redeem-conversion {
+  background: #4f46e5;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.redeem-card p {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.redeem-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.redeem-btn:hover {
+  background: #4338ca;
+}
+
+.redemption-info {
+  background: #f0fdf4;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border-left: 4px solid #10b981;
+}
+
+.redemption-info h4 {
+  color: #059669;
+  margin: 0 0 1rem 0;
+}
+
+.redemption-info ol {
+  color: #64748b;
+  padding-left: 1.5rem;
+}
+
+.redemption-info li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Footer */
+.loyalty-footer {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748b;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: #4f46e5;
+}
+
+.terms-section {
+  margin-bottom: 1.5rem;
+}
+
+.terms-section h4 {
+  color: #1e293b;
+  margin: 0 0 1rem 0;
+}
+
+.terms-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0.75rem;
+}
+
+.term-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.term-item .icon {
+  width: 1rem;
+  height: 1rem;
+  color: #10b981;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.contact-support {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 2px solid #f1f5f9;
+  color: #64748b;
+}
+
+.contact-support a {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-support a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .loyalty-header {
+    grid-template-columns: 1fr;
+  }
+  
+  .loyalty-hero {
+    text-align: center;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .loyalty-container {
+    padding: 1rem;
+  }
+  
+  .loyalty-tabs {
+    flex-direction: column;
+  }
+  
+  .history-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .history-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .quick-actions {
+    flex-direction: column;
+  }
+  
+  .action-btn {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .loyalty-title {
+    font-size: 1.5rem;
+  }
+  
+  .points-amount {
+    font-size: 2.5rem;
+  }
+  
+  .info-grid,
+  .earn-grid,
+  .redeem-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .transaction-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+}

@@ -1,0 +1,599 @@
+/* ======================================================
+   KOVAIS — SHARED BOOKING PAGE THEME
+   Smoky White & Gold Premium Palette
+   Import this file at the top of every booking CSS file.
+   ====================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* ---------- Shared CSS Variables ---------- */
+:root {
+  /* Gold Accents */
+  --gold-primary:    #daa520;
+  --gold-dark:       #b8860b;
+  --gold-light:      #f0c040;
+  --gold-gradient:   linear-gradient(135deg, #f0c040 0%, #daa520 50%, #b8860b 100%);
+  --gold-soft:       rgba(218, 165, 32, 0.10);
+  --gold-border:     rgba(218, 165, 32, 0.18);
+
+  /* Smoky White Backgrounds */
+  --smoke-white:     #faf8f5;
+  --smoke-cream:     #f5f0e8;
+  --smoke-light:     #fdf9f3;
+  --smoke-mid:       #f7f3ec;
+  --smoke-section:   #f0ead8;
+
+  /* Rich Dark Text */
+  --text-black:      #1a1000;
+  --text-dark:       #2c2010;
+  --text-mid:        #4a3f2f;
+  --text-muted:      #7a6f5a;
+  --text-subtle:     #9a8e7c;
+
+  /* Whites */
+  --white:           #ffffff;
+
+  /* Shadows */
+  --shadow-sm:  0 2px 10px rgba(184, 134, 11, 0.06);
+  --shadow-md:  0 6px 22px rgba(184, 134, 11, 0.10);
+  --shadow-lg:  0 12px 40px rgba(184, 134, 11, 0.15);
+  --shadow-xl:  0 20px 60px rgba(184, 134, 11, 0.18);
+
+  /* Typography */
+  --font-body:    'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+
+  /* Transitions */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Base Page Background ---------- */
+body {
+  background-color: var(--smoke-white);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--smoke-cream); }
+::-webkit-scrollbar-thumb { background: var(--gold-primary); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-dark); }
+
+/* ---------- Hero Section ---------- */
+.booking-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(160deg, #faf8f5 0%, #f5f0e8 40%, #fdf9f3 70%, #f7f3ec 100%);
+}
+
+.booking-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 50%, rgba(218, 165, 32, 0.08) 0%, transparent 55%),
+    radial-gradient(circle at 85% 20%, rgba(184, 134, 11, 0.06) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.booking-hero-title {
+  font-family: var(--font-heading);
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: var(--text-black);
+  line-height: 1.18;
+  margin-bottom: 20px;
+}
+
+.booking-hero-title .highlight {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.booking-hero-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  color: var(--text-mid);
+  line-height: 1.85;
+  margin-bottom: 32px;
+}
+
+/* ---------- Hero Stats Bar ---------- */
+.booking-stats-bar {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--gold-border);
+  border-radius: 18px;
+  padding: 22px 30px;
+  display: inline-flex;
+  gap: 36px;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.booking-stat h3 {
+  font-family: var(--font-body);
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2px;
+}
+
+.booking-stat small {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+/* ---------- Hero CTA Buttons ---------- */
+.btn-gold {
+  background: var(--gold-gradient) !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  padding: 0.75rem 2rem !important;
+  border-radius: 50px !important;
+  box-shadow: 0 6px 18px rgba(184, 134, 11, 0.28) !important;
+  transition: var(--transition) !important;
+  font-family: var(--font-body) !important;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 28px rgba(184, 134, 11, 0.38) !important;
+}
+
+.btn-gold-outline {
+  background: transparent !important;
+  border: 2px solid var(--gold-primary) !important;
+  color: var(--gold-dark) !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  padding: 0.72rem 2rem !important;
+  border-radius: 50px !important;
+  transition: var(--transition) !important;
+  font-family: var(--font-body) !important;
+}
+
+.btn-gold-outline:hover {
+  background: var(--gold-soft) !important;
+  border-color: var(--gold-dark) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ---------- Section Wrappers ---------- */
+.booking-section-light {
+  background: linear-gradient(180deg, #ffffff 0%, #faf8f4 100%);
+  padding: 90px 0;
+  position: relative;
+}
+
+.booking-section-cream {
+  background: linear-gradient(160deg, #f5f0e8 0%, #faf8f5 50%, #f7f3ec 100%);
+  padding: 90px 0;
+  position: relative;
+}
+
+.booking-section-light::before,
+.booking-section-cream::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+}
+
+/* ---------- Section Headers ---------- */
+.booking-section-tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--gold-dark);
+  margin-bottom: 14px;
+}
+
+.booking-section-title {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--text-black);
+  margin-bottom: 16px;
+}
+
+.booking-section-desc {
+  font-family: var(--font-body);
+  font-size: 1.08rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ---------- Feature / Info Cards ---------- */
+.booking-feature-card {
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--gold-border) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: var(--transition) !important;
+  overflow: hidden;
+  position: relative;
+}
+
+.booking-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--gold-gradient);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.booking-feature-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: var(--shadow-md) !important;
+  border-color: rgba(218, 165, 32, 0.28) !important;
+}
+
+.booking-feature-card:hover::before {
+  opacity: 1;
+}
+
+.booking-feature-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(218, 165, 32, 0.14), rgba(218, 165, 32, 0.04));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: var(--gold-dark);
+  margin: 0 auto 20px;
+  transition: var(--transition);
+}
+
+.booking-feature-card:hover .booking-feature-icon {
+  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(135deg, rgba(218, 165, 32, 0.22), rgba(218, 165, 32, 0.08));
+}
+
+.booking-feature-card .card-title,
+.booking-feature-card h5,
+.booking-feature-card h4 {
+  font-family: var(--font-body) !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: var(--text-black) !important;
+  margin-bottom: 10px !important;
+}
+
+.booking-feature-card .card-text,
+.booking-feature-card p {
+  font-family: var(--font-body) !important;
+  font-size: 0.98rem !important;
+  color: var(--text-mid) !important;
+  line-height: 1.75 !important;
+}
+
+/* ---------- Selection / Booking Cards ---------- */
+.booking-selection-card {
+  background: #ffffff !important;
+  border: 2px solid var(--gold-border) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: var(--transition) !important;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.booking-selection-card:hover {
+  transform: translateY(-8px) !important;
+  border-color: var(--gold-primary) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.booking-selection-card.selected {
+  border-color: var(--gold-primary) !important;
+  background: rgba(218, 165, 32, 0.04) !important;
+  box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.2), var(--shadow-md) !important;
+  transform: translateY(-5px) !important;
+}
+
+/* ---------- Time Slots ---------- */
+.booking-time-slot {
+  border: 2px solid var(--gold-border) !important;
+  background: var(--white) !important;
+  color: var(--text-dark) !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  font-family: var(--font-body) !important;
+  transition: var(--transition) !important;
+}
+
+.booking-time-slot:hover:not(:disabled) {
+  border-color: var(--gold-primary) !important;
+  background: var(--gold-soft) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.booking-time-slot.selected,
+.booking-time-slot.slot-selected {
+  background: var(--gold-gradient) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 14px rgba(184, 134, 11, 0.28) !important;
+}
+
+.booking-time-slot.booked,
+.booking-time-slot.slot-booked {
+  background: #e5e0d8 !important;
+  color: var(--text-subtle) !important;
+  border-color: #ddd8cf !important;
+  cursor: not-allowed !important;
+  opacity: 0.65;
+}
+
+/* ---------- Date Picker ---------- */
+.booking-datepicker {
+  border: 2px solid var(--gold-border) !important;
+  border-radius: 14px !important;
+  font-family: var(--font-body) !important;
+  font-size: 1rem !important;
+  color: var(--text-dark) !important;
+  background: var(--white) !important;
+  padding: 14px 16px !important;
+  transition: var(--transition) !important;
+  width: 100% !important;
+}
+
+.booking-datepicker:focus {
+  border-color: var(--gold-primary) !important;
+  box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.14) !important;
+  outline: none !important;
+}
+
+/* ---------- Membership / Plan Cards ---------- */
+.booking-plan-card {
+  background: #ffffff !important;
+  border: 2px solid var(--gold-border) !important;
+  border-radius: 20px !important;
+  overflow: hidden;
+  transition: var(--transition) !important;
+  position: relative;
+}
+
+.booking-plan-card:hover,
+.booking-plan-card.selected {
+  transform: translateY(-10px) !important;
+  border-color: var(--gold-primary) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.booking-plan-card .price {
+  font-size: 2.6rem !important;
+  font-weight: 800 !important;
+  background: var(--gold-gradient) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.booking-plan-card .plan-title {
+  font-family: var(--font-heading) !important;
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  color: var(--text-black) !important;
+}
+
+.booking-best-value-badge {
+  position: absolute;
+  top: 15px; right: 15px;
+  background: var(--gold-gradient) !important;
+  color: #fff !important;
+  padding: 0.28rem 0.85rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  transform: rotate(5deg);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(184, 134, 11, 0.28);
+}
+
+/* ---------- Offers / Highlights Banner ---------- */
+.booking-offers-banner {
+  background: linear-gradient(135deg, #2c2416 0%, #3d3222 50%, #2c2416 100%) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.booking-offers-banner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), var(--gold-light), var(--gold-primary), transparent);
+}
+
+.booking-offers-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(218,165,32,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(240,192,64,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.booking-offer-item {
+  background: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(218, 165, 32, 0.2) !important;
+  border-radius: 16px !important;
+  padding: 22px !important;
+  transition: var(--transition) !important;
+}
+
+.booking-offer-item:hover {
+  background: rgba(218, 165, 32, 0.1) !important;
+  border-color: rgba(218, 165, 32, 0.4) !important;
+  transform: translateY(-4px);
+}
+
+/* ---------- Review / Testimonial Cards ---------- */
+.booking-review-card {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid var(--gold-border) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: var(--transition) !important;
+  overflow: hidden;
+}
+
+.booking-review-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: var(--shadow-md) !important;
+  border-color: rgba(218, 165, 32, 0.3) !important;
+}
+
+/* ---------- Form Controls ---------- */
+.booking-input {
+  border: 2px solid var(--gold-border) !important;
+  border-radius: 12px !important;
+  font-family: var(--font-body) !important;
+  font-size: 1rem !important;
+  color: var(--text-dark) !important;
+  background: var(--white) !important;
+  padding: 12px 16px !important;
+  transition: var(--transition) !important;
+}
+
+.booking-input:focus {
+  border-color: var(--gold-primary) !important;
+  box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.14) !important;
+  outline: none !important;
+}
+
+/* ---------- Modal ---------- */
+.booking-modal .modal-content {
+  border: none !important;
+  border-radius: 24px !important;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl) !important;
+  border: 1px solid var(--gold-border) !important;
+}
+
+.booking-modal .modal-header {
+  background: linear-gradient(135deg, #2c2416, #3d3222) !important;
+  color: #fff !important;
+  border-bottom: 2px solid var(--gold-primary) !important;
+  padding: 1.5rem 2rem !important;
+}
+
+.booking-modal .modal-header .modal-title {
+  font-family: var(--font-heading) !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+}
+
+.booking-modal .modal-body {
+  background: var(--smoke-white) !important;
+  padding: 2rem !important;
+}
+
+.booking-modal .btn-close {
+  filter: brightness(0) invert(1) !important;
+  opacity: 0.8 !important;
+}
+
+/* ---------- Payment Modal ---------- */
+.booking-order-details {
+  background: linear-gradient(135deg, var(--smoke-white), var(--smoke-cream)) !important;
+  border: 1px solid var(--gold-border) !important;
+  border-radius: 16px !important;
+  padding: 22px !important;
+}
+
+.booking-points-section {
+  background: rgba(218, 165, 32, 0.07) !important;
+  border: 1px solid rgba(218, 165, 32, 0.2) !important;
+  border-radius: 14px !important;
+  padding: 18px !important;
+}
+
+.booking-payment-btn {
+  border: 2px solid var(--gold-border) !important;
+  border-radius: 16px !important;
+  background: var(--white) !important;
+  color: var(--text-dark) !important;
+  font-weight: 600 !important;
+  font-family: var(--font-body) !important;
+  transition: var(--transition) !important;
+}
+
+.booking-payment-btn:hover {
+  border-color: var(--gold-primary) !important;
+  background: var(--gold-soft) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+/* ---------- Page Footer ---------- */
+.booking-footer {
+  background: linear-gradient(135deg, #2c2416, #3d3222) !important;
+  color: rgba(255,255,255,0.6) !important;
+  padding: 40px 0 !important;
+  text-align: center;
+  position: relative;
+}
+
+.booking-footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), var(--gold-light), var(--gold-primary), transparent);
+}
+
+.booking-footer a {
+  color: var(--gold-light) !important;
+  transition: color 0.3s ease;
+}
+
+.booking-footer a:hover {
+  color: var(--gold-primary) !important;
+}
+
+/* ---------- Utility Classes ---------- */
+.text-gold {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-smoke { background-color: var(--smoke-white) !important; }
+.bg-cream  { background-color: var(--smoke-cream) !important; }
+.border-gold { border-color: var(--gold-primary) !important; }
+
+/* ---------- AOS refinement for light theme ---------- */
+[data-aos] { backface-visibility: hidden; }
