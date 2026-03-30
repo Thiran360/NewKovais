@@ -763,7 +763,7 @@ const Gym = ({ user, setUser, points, setPoints }) => {
                 <img
                   src="https://img.freepik.com/free-photo/young-fitness-man-studio_7502-5008.jpg"
                   alt="Gym Hero"
-                  className="img-fluid rounded-4 shadow-lg gym-hero-image"
+                  className="img-fluid rounded-4 shadow-lg gym-hero-image ken-burns-img"
                 />
               </Col>
             </Row>
@@ -787,7 +787,7 @@ const Gym = ({ user, setUser, points, setPoints }) => {
               {gymFeatures.map((feature, index) => (
                 <Col md={6} lg={3} key={index} className="mb-4">
                   <Card
-                    className="h-100 border-0 shadow-sm gym-feature-card"
+                    className="h-100 border-0 shadow-sm gym-feature-card glass-card"
                     data-aos="fade-up"
                     data-aos-delay={index * 100}
                   >
@@ -1055,7 +1055,7 @@ const Gym = ({ user, setUser, points, setPoints }) => {
               {/* Monthly */}
               <Col md={6} lg={3} className="mb-4">
                 <Card
-                  className={`gym-membership-card h-100 ${selectedAmount === '399' ? 'selected' : ''}`}
+                  className={`gym-membership-card glass-card h-100 ${selectedAmount === '399' ? 'selected' : ''}`}
                   onClick={() => handlePlanClick('399', '1 /Month')}                // data-aos="fade-up"
                 >
                   <Card.Body className="d-flex flex-column">
@@ -1207,7 +1207,7 @@ const Gym = ({ user, setUser, points, setPoints }) => {
               {successStories.map((story, index) => (
                 <Col md={4} key={index} className="mb-4">
                   <Card
-                    className="h-100 border-0 shadow-lg success-story-card"
+                    className="h-100 border-0 shadow-lg success-story-card glass-card"
                     data-aos="fade-up"
                     data-aos-delay={index * 200}
                   >

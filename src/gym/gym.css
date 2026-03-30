@@ -20,6 +20,40 @@
   --transition-fast:   all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   --ease-spring:       cubic-bezier(0.175, 0.885, 0.32, 1.275);
   --ease-smooth:       cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* Modern Glassmorphism Variables */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(201, 168, 76, 0.25);
+  --glass-shadow: 0 8px 32px 0 rgba(28, 23, 18, 0.1);
+  --glass-blur: blur(12px);
+}
+
+/* Ken Burns Effect */
+@keyframes kenBurns {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.1) translate(-2%, -2%); }
+  100% { transform: scale(1) translate(0, 0); }
+}
+
+.ken-burns-img {
+  animation: kenBurns 30s infinite alternate ease-in-out;
+}
+
+/* Glassmorphic Cards */
+.glass-card {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+  border-radius: 24px !important;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--primary-color) !important;
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(201, 168, 76, 0.15) !important;
 }
 
 /* Page background */

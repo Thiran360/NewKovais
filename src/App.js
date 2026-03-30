@@ -4,6 +4,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Barber from './barber/barber';
 import Spa from './spa/spa';
+import Parlour from './parlour/parlour';
 import Hotel from './RoomSearch/RoomSearch';
 import SearchResults from './RoomSearch/SearchResults';
 import Gym from './gym/gym';
@@ -137,6 +138,7 @@ const App = () => {
         <Route path="/" element={<Home user={user} setUser={setUser} points={points} setPoints={setPoints} />} />
         <Route path="/barber" element={<Barber user={user} setUser={setUser} points={points} setPoints={setPoints} />} />
         <Route path="/spa" element={<Spa user={user} setUser={setUser} points={points} setPoints={setPoints} />} />
+        <Route path="/parlour" element={<Parlour user={user} setUser={setUser} points={points} setPoints={setPoints} />} />
         <Route path="/RoomSearch" element={<Hotel />} />
         <Route path="/search-results" element={<SearchResults user={user} setUser={setUser} points={points} setPoints={setPoints} aadhar={aadhar} setAadhar={setAadhar} />} />
         <Route path="/gym" element={<Gym user={user} setUser={setUser} points={points} setPoints={setPoints} />} />
