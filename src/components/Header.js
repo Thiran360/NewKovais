@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 import logo from "./Image/logo.jpg";
 
 // Import Icons
-import { FaHotel, FaCut, FaSpa, FaDumbbell, FaUser, FaLock, FaEye, FaEyeSlash, FaPhoneAlt, FaChevronDown, FaInfoCircle, FaShieldAlt, FaFileContract, FaMoneyBillWave } from "react-icons/fa";
+import { FaHotel, FaCut, FaSpa, FaDumbbell, FaUser, FaLock, FaEye, FaEyeSlash, FaPhoneAlt, FaChevronDown, FaInfoCircle, FaShieldAlt, FaFileContract, FaMoneyBillWave, FaPaintBrush } from "react-icons/fa";
 import { ImProfile } from "react-icons/im";
 import { BsArrowDownRightSquareFill } from "react-icons/bs";
 import { MdWorkHistory } from "react-icons/md";
@@ -255,6 +255,7 @@ function Header({ user, setUser, points, setPoints }) {
     { path: "/search-results", icon: FaHotel, label: "Hotels" },
     { path: "/barber", icon: FaCut, label: "Barber Shop" },
     { path: "/spa", icon: FaSpa, label: "Spa Center" },
+    { path: "/parlour", icon: FaPaintBrush, label: "Parlour" },
     { path: "/gym", icon: FaDumbbell, label: "Gym" },
     { path: "/function", icon: FaCut, label: "Function" },
     { path: "/funeral", icon: FaCut, label: "Funeral" }
