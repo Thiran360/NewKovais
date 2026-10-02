@@ -20,14 +20,16 @@ body {
 
 /* Header Styles */
 .refund-header {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
   color: white;
   padding: 3rem 0;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #daa520;
 }
 
 .refund-header h1 {
+  color: #daa520;
+  font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
   font-weight: 700;
@@ -106,22 +108,22 @@ body {
 }
 
 .toc-nav a:hover {
-  color: #ff6b6b;
-  border-left-color: #ff6b6b;
-  background-color: #fff5f5;
+  color: #daa520;
+  border-left-color: #daa520;
+  background-color: rgba(218, 165, 32, 0.05);
 }
 
 /* Policy Summary */
 .policy-summary {
-  background: linear-gradient(135deg, #fff5f5 0%, #fff0e6 100%);
+  background: linear-gradient(135deg, rgba(218, 165, 32, 0.05) 0%, #fff0e6 100%);
   border-radius: 12px;
   padding: 2rem;
   margin-bottom: 2rem;
-  border: 2px solid #ffe0e0;
+  border: 2px solid rgba(218, 165, 32, 0.2);
 }
 
 .policy-summary h3 {
-  color: #d63031;
+  color: #daa520;
   margin-bottom: 1.5rem;
   text-align: center;
   font-size: 1.4rem;
@@ -186,12 +188,12 @@ body {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #e9ecef;
+  border-bottom: 2px solid rgba(218, 165, 32, 0.2);
   font-weight: 600;
 }
 
 .refund-section h3 {
-  color: #e17055;
+  color: #daa520;
   font-size: 1.25rem;
   margin: 1.5rem 0 1rem 0;
   font-weight: 600;
@@ -231,7 +233,7 @@ body {
   background: #f8f9fa;
   padding: 1.5rem;
   border-radius: 8px;
-  border-left: 4px solid #ff6b6b;
+  border-left: 4px solid #daa520;
 }
 
 .service-header {
@@ -274,9 +276,9 @@ body {
 }
 
 .notice-box.warning {
-  background: #fff5f5;
-  border: 1px solid #ffcccc;
-  border-left: 4px solid #ff6b6b;
+  background: rgba(218, 165, 32, 0.05);
+  border: 1px solid rgba(218, 165, 32, 0.2);
+  border-left: 4px solid #daa520;
 }
 
 .notice-box.important {
@@ -286,7 +288,7 @@ body {
 }
 
 .notice-box strong {
-  color: #d63031;
+  color: #daa520;
   display: block;
   margin-bottom: 0.5rem;
 }
@@ -310,7 +312,7 @@ body {
 }
 
 .step-number {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%);
+  background: linear-gradient(135deg, #daa520 0%, #ffa726 100%);
   color: white;
   width: 40px;
   height: 40px;
@@ -345,16 +347,16 @@ body {
   background: #f8f9fa;
   padding: 1rem;
   border-radius: 8px;
-  border-left: 4px solid #ff6b6b;
+  border-left: 4px solid #daa520;
 }
 
 /* Acceptance Section */
 .acceptance-section {
-  background: #fff5f5;
+  background: rgba(218, 165, 32, 0.05);
   border-radius: 8px;
   padding: 2rem;
   margin-top: 3rem;
-  border: 1px solid #ffcccc;
+  border: 1px solid rgba(218, 165, 32, 0.2);
 }
 
 .acceptance-box {
@@ -391,8 +393,8 @@ body {
 }
 
 .checkbox-label input[type="checkbox"]:checked + .checkmark {
-  background-color: #ff6b6b;
-  border-color: #ff6b6b;
+  background-color: #daa520;
+  border-color: #daa520;
 }
 
 .checkbox-label input[type="checkbox"]:checked + .checkmark::after {
@@ -416,7 +418,7 @@ body {
 }
 
 .accept-btn.active {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%);
+  background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
   cursor: pointer;
 }
 
@@ -427,7 +429,7 @@ body {
 
 /* Footer */
 .refund-footer {
-  background: #2c3e50;
+  background: #1a1a1a; border-top: 1px solid rgba(218, 165, 32, 0.2);
   color: white;
   text-align: center;
   padding: 2rem 0;
@@ -475,7 +477,7 @@ body {
   align-items: center;
   padding: 1.5rem 2rem;
   border-bottom: 1px solid #e9ecef;
-  background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%);
+  background: linear-gradient(135deg, #daa520 0%, #ffa726 100%);
   color: white;
   border-radius: 12px 12px 0 0;
 }
@@ -519,7 +521,7 @@ body {
 
 .confirm-btn {
   padding: 0.75rem 2rem;
-  background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%);
+  background: linear-gradient(135deg, #daa520 0%, #ffa726 100%);
   color: white;
   border: none;
   border-radius: 6px;
@@ -552,12 +554,20 @@ body {
 
 @media (max-width: 768px) {
   .refund-header {
-    padding: 2rem 0;
-  }
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+  border-bottom: 2px solid #daa520;
+}
   
   .refund-header h1 {
-    font-size: 2rem;
-  }
+  color: #daa520;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
   
   .content-wrapper {
     grid-template-columns: 1fr;
@@ -612,12 +622,20 @@ body {
   }
   
   .refund-header {
-    padding: 1.5rem 0;
-  }
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+  border-bottom: 2px solid #daa520;
+}
   
   .refund-header h1 {
-    font-size: 1.75rem;
-  }
+  color: #daa520;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
   
   .service-tags {
     gap: 0.5rem;
@@ -672,10 +690,12 @@ body {
 /* Print Styles */
 @media print {
   .refund-header {
-    background: none;
-    color: black;
-    padding: 1rem 0;
-  }
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+  border-bottom: 2px solid #daa520;
+}
   
   .toc-sidebar,
   .acceptance-section,
@@ -714,9 +734,12 @@ body {
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   .refund-header {
-    background: #000;
-    color: #fff;
-  }
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+  border-bottom: 2px solid #daa520;
+}
   
   .refund-section h2 {
     border-bottom-color: #000;
@@ -769,7 +792,7 @@ body {
   }
   
   .toc-nav a:hover {
-    color: #ff6b6b;
+    color: #daa520;
     background-color: #333333;
   }
   

@@ -12,6 +12,9 @@ import {
   Check, MapPin, Instagram, Facebook, Twitter, Home, Calendar as CalendarIcon, CheckCircle
 } from "lucide-react";
 import "./barber.css";
+import banner1 from './images/barber_banner_1.jpg';
+import banner2 from './images/barber_banner_2.jpg';
+import banner3 from './images/barber_banner_3.jpg';
 import { FaScissors } from "react-icons/fa6";
 import { PaymentPage, ConfirmationPage } from "../components/Payment";
 // import { set } from "react-datepicker/dist/date_utils";
@@ -93,22 +96,22 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
   // Hero Slides
   const slides = [
     {
-      title: "Premium Barber Experience",
-      subtitle: "Crafting Confidence Since 1995",
-      description: "Experience the finest in traditional barbering with modern techniques. Our master barbers deliver precision cuts and luxurious grooming services.",
-      image: "https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg",
+      title: "The Fine Art of Barbering",
+      subtitle: "PREMIUM CRAFTSMANSHIP",
+      description: "Experience absolute luxury with our master barbers. Precision cuts, hot towel shaves, and unparalleled grooming.",
+      image: banner1,
     },
     {
-      title: "Master Craftsmen",
-      subtitle: "Precision & Style United",
-      description: "Every cut is a masterpiece. Our skilled barbers combine decades of experience with contemporary styling to create your perfect look.",
-      image: "https://images.pexels.com/photos/1570807/pexels-photo-1570807.jpeg",
+      title: "Masterful Straight Razors",
+      subtitle: "CLASSIC & REFINED",
+      description: "Step back in time with our signature straight razor shave. Impeccable attention to detail in a truly cinematic atmosphere.",
+      image: banner2,
     },
     {
-      title: "Luxury Redefined",
-      subtitle: "Where Tradition Meets Innovation",
-      description: "Step into our sanctuary of style where classic techniques meet modern luxury. Transform your look, elevate your confidence.",
-      image: "https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg",
+      title: "Elevated Grooming",
+      subtitle: "GOLD STANDARD",
+      description: "Where tradition meets modern luxury. Discover the pinnacle of men's grooming with our premium treatments.",
+      image: banner3,
     },
   ];
 
@@ -161,15 +164,6 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
       price: 120,
       image: 'https://img.freepik.com/premium-photo/professional-hair-coloring-women-salon-bright-trendy-style-closeup-strands-hair_162895-757.jpg?w=360',
       duration: '180 min'
-    },
-    {
-      id: 'w3',
-      category: 'Women',
-      name: 'Bridal Package',
-      description: 'Complete wedding day styling',
-      price: 200,
-      image: 'https://www.sanctuarysalondayspa.com/wp-content/uploads/2019/08/customized-facial.jpg',
-      duration: '240 min'
     },
 
     // Kids Services
@@ -280,9 +274,6 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
     { id: 2, image: "https://thevou.com/wp-content/uploads/2025/02/oval-face-shape-men-beard-styles.jpg", category: "beards", title: "Beard Styling" },
     { id: 3, image: "https://cdn.prod.website-files.com/5cb569e54ca2fddd5451cbb2/5f90d9f6524b4ef970668f66_shaving.jpg", category: "shaves", title: "Traditional Shave" },
     { id: 4, image: "https://5.imimg.com/data5/SELLER/Default/2024/2/390915581/QH/RY/VA/5937917/men-hair-cutting-services-500x500.jpg", category: "haircuts", title: "Modern Style" },
-    { id: 5, image: "https://images.squarespace-cdn.com/content/v1/5616c8cde4b0bbc1cabb7c79/1722260249364-2KSRDUK610AJXEZLJU7Y/The+Complete+Beard+Grooming+Guide_+How+To+Trim+A+Beard+%26+Maintain+It+Like+A+Pro.jpeg?format=1500w", category: "beards", title: "Beard Trim" },
-    { id: 6, image: "https://i.ytimg.com/vi/RJp9PSsuL_M/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAtW6soae77-oaPufaJK6HsMpgEGg", category: "haircuts", title: "Fade Cut" },
-    { id: 7, image: "https://wimpoleclinic.com/wp-content/uploads/2024/05/7-Low-Maintenance-Full-Beard-Styles-For-Confident-Men.jpg", category: "beards", title: "Full Grooming" },
   ];
 
   // Effects
@@ -1188,27 +1179,6 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                 </button>
               </motion.div>
 
-              <motion.div
-                className="hero-stats-display"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-              >
-                {stats.map((stat, index) => (
-                  <motion.div
-                    key={stat.label}
-                    className="stat-item-box"
-                    whileHover={{ scale: 1.1 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8 + index * 0.1 }}
-                  >
-                    <stat.icon className="stat-icon-element" />
-                    <div className="stat-value-number">{stat.value}</div>
-                    <div className="stat-label-text">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </motion.div>
             </motion.div>
 
             <motion.div
@@ -1263,164 +1233,124 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
       </section>
 
       {/* NEW SERVICES SECTION */}
-      <section id="services" className="min-vh-100" style={{ backgroundColor: '#f8f9fa' }}>
-        <div className="container py-5">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="mb-5"
-          >
-            <h2 className="h2 fw-bold mb-5 text-center" style={{ color: '#daa520', fontFamily: 'Playfair Display, serif', fontSize: '2.7rem' }}>
-              Our Premium Services
-            </h2>
+      <section id="services" className="barber-services-section">
+        <Container>
+          <div className="barber-section-header" data-aos="fade-up">
+            <span className="barber-section-tag">Premium Grooming</span>
+            <h2>Our Services</h2>
+            <p>Select your location, category, and preferred treatments</p>
+          </div>
 
-            {/* Service Location Selection */}
-            <div className="mb-5" id="first">
-              <h3 className="h4 fw-semibold mb-4 text-center" style={{ color: '#000', fontFamily: 'Playfair Display, serif', fontSize: '2.7rem' }}>
-                Service Location
-              </h3>
-              <div className="row justify-content-center g-4">
-                <div className="col-md-6 col-lg-4">
-                  <div
-                    className={`card h-100 text-center cursor-pointer ${booking.location === 'salon' ? 'border-golden border-3 shadow-lg' : 'border-secondary'
-                      }`}
-                    onClick={() => {
-                      handleLocationChange('salon')
-                      // const service = document.getElementById('second');
-                      // service.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    style={{
-                      cursor: 'pointer',
-                      backgroundColor: '#fff',
-                      borderColor: booking.location === 'salon' ? '#daa520' : '#dee2e6'
-                    }}
-                  >
-                    <div className="card-body p-4">
-                      <MapPin className="mx-auto mb-3" style={{ width: '48px', height: '48px', color: '#daa520' }} />
-                      <h4 className="fw-semibold mb-2" style={{ color: '#000' }}>Salon Service</h4>
-                      <p className="small" style={{ color: '#6c757d' }}>Visit our premium location</p>
-                    </div>
+          {/* Service Location Selection */}
+          <div className="barber-location-selector mb-5" data-aos="fade-up">
+            <Row className="justify-content-center g-4">
+              <Col md={6} lg={5}>
+                <div
+                  className={`barber-location-card ${booking.location === 'salon' ? 'active' : ''}`}
+                  onClick={() => handleLocationChange('salon')}
+                >
+                  <div className="barber-location-icon">
+                    <i className="fas fa-store"></i>
+                  </div>
+                  <h3 className="barber-location-title">Visit Salon</h3>
+                  <p className="barber-location-desc">Experience our premium atmosphere and full range of professional equipment.</p>
+                  <div className={`barber-location-circle ${booking.location === 'salon' ? 'selected' : ''}`}>
+                    {booking.location === 'salon' ? '✓' : '→'}
                   </div>
                 </div>
-                <div className="col-md-6 col-lg-4">
-                  <div
-                    className={`card h-100 text-center cursor-pointer ${booking.location === 'doorstep' ? 'border-golden border-3 shadow-lg' : 'border-secondary'
-                      }`}
-                    onClick={() => {
-                      handleLocationChange('doorstep')
-                      // const service = document.getElementById('second');
-                      // service.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    style={{
-                      cursor: 'pointer',
-                      backgroundColor: '#fff',
-                      borderColor: booking.location === 'doorstep' ? '#daa520' : '#dee2e6'
-                    }}
-                  >
-                    <div className="card-body p-4">
-                      <Home className="mx-auto mb-3" style={{ width: '48px', height: '48px', color: '#daa520' }} />
-                      <h4 className="fw-semibold mb-2" style={{ color: '#000' }}>Doorstep Service</h4>
-                      <p className="small" style={{ color: '#6c757d' }}>We come to you (+ ₹250)</p>
-                    </div>
+              </Col>
+              
+              <Col md={6} lg={5}>
+                <div
+                  className={`barber-location-card ${booking.location === 'home' ? 'active' : ''}`}
+                  onClick={() => handleLocationChange('home')}
+                >
+                  <div className="barber-location-icon">
+                    <i className="fas fa-home"></i>
+                  </div>
+                  <h3 className="barber-location-title">Home Service</h3>
+                  <p className="barber-location-desc">Our master barbers bring the premium grooming experience directly to your door.</p>
+                  <div className={`barber-location-circle ${booking.location === 'home' ? 'selected' : ''}`}>
+                    {booking.location === 'home' ? '✓' : '→'}
                   </div>
                 </div>
-              </div>
-            </div>
+              </Col>
+            </Row>
+          </div>
 
-            {/* Category Filter */}
-            <div className="d-flex flex-wrap justify-content-center gap-3 mb-5" id="second">
-              {categories.map((category) => (
+          {/* Category Filter */}
+          <div className="barber-category-filter" data-aos="fade-up">
+            <div className="barber-category-track">
+              {['Men', 'Women', 'Kids', 'Seniors'].map((category) => (
                 <button
                   key={category}
-                  className={`btn px-4 py-2 ${selectedCategory === category
-                    ? 'btn-golden text-white fw-bold'
-                    : 'btn-outline-golden'
-                    }`}
-                  onClick={() => {
-                    if (booking.services.length === 0) {
-                      setSelectedCategory(category === selectedCategory ? null : category);
-                    }
-                    const serve = document.getElementById('third');
-                    serve.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  disabled={booking.services.length > 0 && selectedCategory !== category}
+                  className={`barber-category-btn ${selectedCategory === category ? 'active' : ''}`}
+                  onClick={() => setSelectedCategory(category)}
                 >
                   {category}
                 </button>
               ))}
             </div>
+          </div>
 
-            {/* Services Grid */}
-            <div className="row g-4" id='third'>
-              {filteredServices.map((service) => (
-                <motion.div
-                  key={service.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  whileHover={{ y: -5 }}
-                  className="col-md-6 col-lg-4"
-                >
-                  <div className={`card h-100 shadow ${booking.services.some(s => s.id === service.id)
-                    ? 'border-golden border-3 shadow-lg'
-                    : 'border-secondary'
-                    }`}
-                    style={{
-                      backgroundColor: '#fff',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease'
-                    }}>
-                    <div className="position-relative overflow-hidden">
-                      <img
-                        src={service.image}
-                        alt={service.name}
-                        className="card-img-top"
-                        style={{ height: '200px', objectFit: 'cover' }}
-                        loading="lazy"  // Added lazy loading
-                      />
-                      <div className="position-absolute top-0 end-0 m-3">
-                        <span className="badge" style={{ backgroundColor: '#daa520', color: '#fff' }}>
-                          {service.duration}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="card-body d-flex flex-column">
-                      <h5 className="card-title" style={{ color: '#000' }}>{service.name}</h5>
-                      <p className="card-text flex-grow-1" style={{ color: '#6c757d' }}>
-                        {service.description}
-                      </p>
-                      <div className="d-flex justify-content-between align-items-center mb-3">
-                        <span className="h4 fw-bold mb-0" style={{ color: '#daa520' }}>
-                          ₹ {service.price}
-                        </span>
-                        <span className="badge" style={{ backgroundColor: '#6c757d', color: '#fff' }}>
-                          {service.category}
-                        </span>
-                      </div>
-                      <button
-                        onClick={() => handleServiceSelect(service)}
-                        className={`btn w-100 ${booking.services.some(s => s.id === service.id)
-                          ? 'btn-golden text-white fw-bold'
-                          : 'btn-outline-golden'
-                          }`}
-                      >
-                        {booking.services.some(s => s.id === service.id) ? 'Selected' : 'Select Service'}
-                      </button>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+          {/* Services Grid */}
+          <div className="barber-services-grid" id="services-grid">
+            <Row>
+              <AnimatePresence>
+                {services
+                  .filter(service => !selectedCategory || service.category === selectedCategory)
+                  .map((service, index) => {
+                    const isSelected = booking.services.some(s => s.id === service.id);
+                    return (
+                      <Col lg={4} md={6} key={service.id} className="mb-4">
+                        <motion.div
+                          layout
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.9 }}
+                          transition={{ duration: 0.3 }}
+                          className={`barber-service-card ${isSelected ? 'active' : ''}`}
+                          onClick={() => handleServiceSelect(service)}
+                        >
+                          <div className="barber-service-img-wrapper">
+                            <img src={service.image} alt={service.name} className="barber-service-img" />
+                            <div className="barber-service-price">₹{service.price}</div>
+                            {isSelected && (
+                              <div className="barber-service-check">
+                                ✓
+                              </div>
+                            )}
+                          </div>
+                          <div className="barber-service-content">
+                            <h4 className="barber-service-title">{service.name}</h4>
+                            <div className="barber-service-meta">
+                              <span className="barber-service-duration"><i className="far fa-clock"></i> {service.duration}</span>
+                              <span className="barber-service-category">{service.category}</span>
+                            </div>
+                            <p className="barber-service-desc">{service.description}</p>
+                            <button className={`barber-service-btn ${isSelected ? 'selected' : ''}`}>
+                              {isSelected ? 'ADDED TO BOOKING' : 'ADD SERVICE'}
+                            </button>
+                          </div>
+                        </motion.div>
+                      </Col>
+                    );
+                  })}
+              </AnimatePresence>
+            </Row>
+          </div>
+
+          {booking.services.length > 0 && (
+            <div className="text-center mt-5" data-aos="fade-up">
+              <button
+                onClick={() => document.getElementById('booking-sectionn')?.scrollIntoView({ behavior: 'smooth' })}
+                className="btn-barber-primary px-5 py-3"
+              >
+                CONTINUE TO SCHEDULE ({booking.services.length} SELECTED)
+              </button>
             </div>
-          </motion.div>
-          <button
-            className="btn btn-success btn-lg mx-auto d-block mt-4 w-50"
-            onClick={() => {
-              const services = document.getElementById('booking-sectionn');
-              services.scrollIntoView({ behavior: 'smooth' });
-            }}>Booking Your Appointment</button>
-        </div>
+          )}
+        </Container>
       </section>
 
       {/* About Section */}
@@ -1433,7 +1363,7 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="about-main-title" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="about-main-title" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
               About BarberCraft
             </h2>
             <p className="about-intro-paragraph">
@@ -1450,7 +1380,7 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h3 className="story-section-heading" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h3 className="story-section-heading" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
                 Our Story
               </h3>
               <p className="story-paragraph-one">
@@ -1547,7 +1477,7 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="gallery-main-heading" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="gallery-main-heading" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
               Our Portfolio
             </h2>
             <p className="gallery-intro-text">
@@ -1661,7 +1591,7 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
       {/* NEW BOOKING SECTION */}
       <section id="booking-sectionn" className="container py-5">
         <div className="text-center mb-5">
-          <h1 className="display-4 fw-bold mb-4" style={{ color: '#000', fontSize: '3.5rem', fontFamily: 'Playfair Display, serif' }}>
+          <h1 className="display-4 fw-bold mb-4" style={{ color: '#1A1A1A', fontSize: '3.5rem', fontFamily: 'Cormorant Garamond, serif' }}>
             Book Your Appointment
           </h1>
           <p className="lead" style={{ color: '#6c757d', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>
@@ -1671,8 +1601,8 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
           <div className="row justify-content-center" >
             <div className="col-lg-8 col-xl-6" style={{ maxWidth: '900px', width: '100%' }}>
               <div className="mb-5">
-                <div className="card shadow-lg" style={{ backgroundColor: '#fff', borderColor: '#dc3545' }}>
-                  <div className="card-header" style={{ backgroundColor: '#dc3545', color: '#fff' }}>
+                <div className="card shadow-lg" style={{ backgroundColor: '#fff', borderColor: '#C9A84C' }}>
+                  <div className="card-header" style={{ backgroundColor: '#C9A84C', color: '#fff' }}>
                     <h4 className="card-title d-flex align-items-center gap-2 mb-0">
                       <Scissors style={{ width: '24px', height: '24px' }} />
                       Book Your Appointment
@@ -1683,20 +1613,10 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                       <div className="col-12">
                         <div className="d-flex align-items-center justify-content-between position-relative">
                           {/* Progress Line */}
-                          <div
-                            className="position-absolute w-100 progress-line"
-                          // style={{
-                          //   height: '2px',
-                          //   backgroundColor: 'rgba(255,255,255,0.3)',
-                          //   top: '50%',
-                          //   transform: 'translateY(-50%)',
-                          //   zIndex: 1
-                          // }}
-                          >
+                          <div className="position-absolute w-100 progress-line">
                             <div
                               className="h-100"
                               style={{
-                                backgroundColor: '#fff',
                                 width: `${((currentStep) / 4) * 100}%`,
                                 transition: 'width 0.3s ease'
                               }}
@@ -1709,31 +1629,19 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                             return (
                               <div key={step.number} className="text-center position-relative" style={{ zIndex: 2 }}>
                                 <div
-                                  className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2"
-                                  style={{
-                                    width: '40px',
-                                    height: '40px',
-                                    backgroundColor: isActive ? '#fff' : 'rgba(255,255,255,0.3)',
-                                    border: `2px solid ${isActive ? '#fff' : 'rgba(255,255,255,0.5)'}`,
-                                    color: isActive ? '#dc3545' : 'rgba(255,255,255,0.7)',
-                                    transition: 'all 0.3s ease'
-                                  }}
+                                  className={`step-circle-indicator mx-auto mb-2 ${isActive ? 'step-active' : ''}`}
                                 >
                                   <step.icon size={16} />
                                 </div>
                                 <div>
                                   <div
-                                    className="fw-bold"
-                                    style={{
-                                      color: isActive ? '#fff' : 'rgba(255,255,255,0.7)',
-                                      fontSize: '0.75rem'
-                                    }}
+                                    className={`step-number-label ${isActive ? 'step-number-active' : ''}`}
                                   >
                                     Step {step.number}
                                   </div>
                                   <div
                                     style={{
-                                      color: 'rgba(255,255,255,0.8)',
+                                      color: isActive ? '#fff' : 'rgba(255,255,255,0.5)',
                                       fontSize: '0.7rem'
                                     }}
                                   >
@@ -1756,7 +1664,7 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: -50 }}
                         >
-                          <h5 className="fw-semibold mb-4" style={{ color: '#000' }}>
+                          <h5 className="fw-semibold mb-4" style={{ color: '#1A1A1A' }}>
                             Selected Services
                           </h5>
                           {booking.services.length === 0 ? (
@@ -1770,12 +1678,12 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                           ) : (
                             <div className="mb-4">
                               {booking.services.map((service) => (
-                                <div key={service.id} className="d-flex justify-content-between align-items-center p-3 mb-3 rounded border" style={{ backgroundColor: '#f8f9fa' }}>
+                                <div key={service.id} className="d-flex justify-content-between align-items-center p-3 mb-3 rounded border" style={{ backgroundColor: '#FDFAF4' }}>
                                   <div>
-                                    <h6 className="fw-medium mb-1" style={{ color: '#000' }}>{service.name}</h6>
+                                    <h6 className="fw-medium mb-1" style={{ color: '#1A1A1A' }}>{service.name}</h6>
                                     <small style={{ color: '#6c757d' }}>{service.duration}</small>
                                   </div>
-                                  <span className="fw-bold" style={{ color: '#dc3545' }}>₹ {service.price}</span>
+                                  <span className="fw-bold" style={{ color: '#C9A84C' }}>₹ {service.price}</span>
                                 </div>
                               ))}
                             </div>
@@ -1784,7 +1692,7 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                             <button
                               onClick={nextStep}
                               disabled={booking.services.length === 0}
-                              className="btn btn-danger text-white fw-bold px-4"
+                              className="btn btn-barber-primary text-white fw-bold px-4"
                             >
                               Continue
                             </button>
@@ -1799,7 +1707,7 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: -50 }}
                         >
-                          <h5 className="fw-semibold mb-4" style={{ color: '#000' }}>
+                          <h5 className="fw-semibold mb-4" style={{ color: '#1A1A1A' }}>
                             Choose Your Specialist
                           </h5>
                           <div className="row g-3 mb-4">
@@ -1807,24 +1715,24 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                               <div key={employee.id} className="col-md-6">
                                 <div
                                   className={`card border cursor-pointer ${booking.employee?.id === employee.id
-                                    ? 'border-danger border-3 shadow-lg'
+                                    ? 'border-gold border-3 shadow-lg'
                                     : 'border-secondary'
                                     }`}
                                   onClick={() => setBooking(prev => ({ ...prev, employee }))}
-                                  style={{ cursor: 'pointer', backgroundColor: '#fff' }}
+                                  style={{ cursor: 'pointer', overflow: 'hidden', borderRadius: '16px', backgroundColor: '#fff' }}
                                 >
                                   <div className="card-body">
                                     <div className="d-flex align-items-center gap-3">
                                       <div className="rounded-circle d-flex align-items-center justify-content-center"
-                                        style={{ backgroundColor: '#dc3545', width: '64px', height: '64px' }}>
+                                        style={{ backgroundColor: '#C9A84C', width: '64px', height: '64px' }}>
                                         <User style={{ width: '32px', height: '32px', color: '#fff' }} />
                                       </div>
                                       <div className="flex-grow-1">
-                                        <h6 className="fw-semibold mb-1" style={{ color: '#000' }}>{employee.name}</h6>
+                                        <h6 className="fw-semibold mb-1" style={{ color: '#1A1A1A' }}>{employee.name}</h6>
                                         <p className="small mb-1" style={{ color: '#6c757d' }}>{employee.speciality}</p>
                                         <div className="d-flex align-items-center gap-1">
-                                          <Star style={{ width: '16px', height: '16px', color: '#dc3545', fill: '#dc3545' }} />
-                                          <small style={{ color: '#dc3545' }}>{employee.rating}</small>
+                                          <Star style={{ width: '16px', height: '16px', color: '#C9A84C', fill: '#C9A84C' }} />
+                                          <small style={{ color: '#C9A84C' }}>{employee.rating}</small>
                                         </div>
                                       </div>
                                     </div>
@@ -1840,7 +1748,7 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                             <button
                               onClick={nextStep}
                               disabled={!booking.employee}
-                              className="btn btn-danger text-white fw-bold px-4"
+                              className="btn btn-barber-primary text-white fw-bold px-4"
                             >
                               Continue
                             </button>
@@ -1855,14 +1763,14 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: -50 }}
                         >
-                          <h3 className="text-center fw-bold mb-5" style={{ color: '#000', fontSize: '2rem' }}>
+                          <h3 className="text-center fw-bold mb-5" style={{ color: '#1A1A1A', fontSize: '2rem' }}>
                             Choose Date & Time
                           </h3>
 
                           <div className="row g-5">
                             {/* Date Selection */}
                             <div className="col-lg-4">
-                              <h5 className="fw-semibold mb-4" style={{ color: '#000' }}>
+                              <h5 className="fw-semibold mb-4" style={{ color: '#1A1A1A' }}>
                                 Select Date
                               </h5>
                               <div className="position-relative">
@@ -1884,7 +1792,7 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
 
                             {/* Time Selection */}
                             <div className="col-lg-8">
-                              <h5 className="fw-semibold mb-4" style={{ color: '#000' }}>
+                              <h5 className="fw-semibold mb-4" style={{ color: '#1A1A1A' }}>
                                 Available Times
                               </h5>
                               <div className="row g-3">
@@ -1909,9 +1817,9 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                                           fontSize: '0.95rem',
                                           borderWidth: '2px',
                                           borderRadius: '8px',
-                                          backgroundColor: isSelected ? '#dc3545' : 'transparent',
-                                          borderColor: isSelected ? '#dc3545' : '#dc3545',
-                                          color: isSelected ? '#fff' : '#dc3545',
+                                          backgroundColor: isSelected ? '#C9A84C' : 'transparent',
+                                          borderColor: isSelected ? '#C9A84C' : '#C9A84C',
+                                          color: isSelected ? '#fff' : '#C9A84C',
                                           transition: 'all 0.2s ease'
                                         }}
                                       >
@@ -1942,8 +1850,8 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                               disabled={!booking.date || !booking.time}
                               className="btn btn-lg px-5 text-white fw-semibold"
                               style={{
-                                backgroundColor: '#dc3545',
-                                borderColor: '#dc3545',
+                                backgroundColor: '#C9A84C',
+                                borderColor: '#C9A84C',
                                 borderRadius: '8px',
                                 fontSize: '1.1rem'
                               }}
@@ -1961,12 +1869,12 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: -50 }}
                         >
-                          <h5 className="fw-semibold mb-4" style={{ color: '#000' }}>
+                          <h5 className="fw-semibold mb-4" style={{ color: '#1A1A1A' }}>
                             Your Details
                           </h5>
                           <div className="row g-3 mb-4">
                             <div className="col-md-6">
-                              <label htmlFor="name" className="form-label" style={{ color: '#000' }}>Full Name *</label>
+                              <label htmlFor="name" className="form-label" style={{ color: '#1A1A1A' }}>Full Name *</label>
                               <input
                                 id="name"
                                 type="text"
@@ -1983,7 +1891,7 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                               )}
                             </div>
                             <div className="col-md-6">
-                              <label htmlFor="phone" className="form-label" style={{ color: '#000' }}>Phone Number *</label>
+                              <label htmlFor="phone" className="form-label" style={{ color: '#1A1A1A' }}>Phone Number *</label>
                               <input
                                 id="phone"
                                 type="tel"
@@ -2000,7 +1908,7 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                               )}
                             </div>
                             <div className="col-12">
-                              <label htmlFor="email" className="form-label" style={{ color: '#000' }}>Email Address *</label>
+                              <label htmlFor="email" className="form-label" style={{ color: '#1A1A1A' }}>Email Address *</label>
                               <input
                                 id="email"
                                 type="email"
@@ -2017,7 +1925,7 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                               )}
                             </div>
                             <div className="col-12">
-                              <label htmlFor="notes" className="form-label" style={{ color: '#000' }}>Special Notes (Optional)</label>
+                              <label htmlFor="notes" className="form-label" style={{ color: '#1A1A1A' }}>Special Notes (Optional)</label>
                               <textarea
                                 id="notes"
                                 className="form-control"
@@ -2044,7 +1952,7 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                                   setShowErrors(true);
                                 }
                               }}
-                              className="btn btn-danger text-white fw-bold px-4"
+                              className="btn btn-barber-primary text-white fw-bold px-4"
                             >
                               Review Booking
                             </button>
@@ -2059,23 +1967,23 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: -50 }}
                         >
-                          <h5 className="fw-semibold mb-4 d-flex align-items-center gap-2" style={{ color: '#000' }}>
-                            <CheckCircle style={{ width: '24px', height: '24px', color: '#dc3545' }} />
+                          <h5 className="fw-semibold mb-4 d-flex align-items-center gap-2" style={{ color: '#1A1A1A' }}>
+                            <CheckCircle style={{ width: '24px', height: '24px', color: '#C9A84C' }} />
                             Booking Confirmation
                           </h5>
 
                           <div className="row g-4">
                             {/* Services Summary */}
                             <div className="col-12">
-                              <h6 className="fw-semibold mb-3" style={{ color: '#000' }}>Selected Services</h6>
+                              <h6 className="fw-semibold mb-3" style={{ color: '#1A1A1A' }}>Selected Services</h6>
                               <div className="mb-4">
                                 {booking.services.map((service) => (
-                                  <div key={service.id} className="d-flex justify-content-between align-items-center p-3 mb-2 rounded border" style={{ backgroundColor: '#f8f9fa' }}>
+                                  <div key={service.id} className="d-flex justify-content-between align-items-center p-3 mb-2 rounded border" style={{ backgroundColor: '#FDFAF4' }}>
                                     <div>
-                                      <span className="fw-medium" style={{ color: '#000' }}>{service.name}</span>
+                                      <span className="fw-medium" style={{ color: '#1A1A1A' }}>{service.name}</span>
                                       <small className="ms-2" style={{ color: '#6c757d' }}>({service.duration})</small>
                                     </div>
-                                    <span className="fw-bold" style={{ color: '#dc3545' }}>₹ {service.price}</span>
+                                    <span className="fw-bold" style={{ color: '#C9A84C' }}>₹ {service.price}</span>
                                   </div>
                                 ))}
                               </div>
@@ -2083,23 +1991,23 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
 
                             {/* Appointment Details */}
                             <div className="col-md-6">
-                              <h6 className="fw-semibold mb-3" style={{ color: '#000' }}>Appointment Details</h6>
+                              <h6 className="fw-semibold mb-3" style={{ color: '#1A1A1A' }}>Appointment Details</h6>
                               <div style={{ color: '#6c757d' }}>
-                                <p><strong style={{ color: '#000' }}>Date:</strong> {new Date(booking.date).toLocaleDateString()}</p>
-                                <p><strong style={{ color: '#000' }}>Time:</strong> {booking.time}</p>
-                                <p><strong style={{ color: '#000' }}>Location:</strong> {booking.location === 'salon' ? 'Salon' : 'Doorstep Service'}</p>
-                                <p><strong style={{ color: '#000' }}>Specialist:</strong> {booking.employee?.name}</p>
+                                <p><strong style={{ color: '#1A1A1A' }}>Date:</strong> {new Date(booking.date).toLocaleDateString()}</p>
+                                <p><strong style={{ color: '#1A1A1A' }}>Time:</strong> {booking.time}</p>
+                                <p><strong style={{ color: '#1A1A1A' }}>Location:</strong> {booking.location === 'salon' ? 'Salon' : 'Doorstep Service'}</p>
+                                <p><strong style={{ color: '#1A1A1A' }}>Specialist:</strong> {booking.employee?.name}</p>
                               </div>
                             </div>
 
                             <div className="col-md-6">
-                              <h6 className="fw-semibold mb-3" style={{ color: '#000' }}>Customer Information</h6>
+                              <h6 className="fw-semibold mb-3" style={{ color: '#1A1A1A' }}>Customer Information</h6>
                               <div style={{ color: '#6c757d' }}>
-                                <p><strong style={{ color: '#000' }}>Name:</strong> {booking.customerInfo.name}</p>
-                                <p><strong style={{ color: '#000' }}>Phone:</strong> {booking.customerInfo.phone}</p>
-                                <p><strong style={{ color: '#000' }}>Email:</strong> {booking.customerInfo.email}</p>
+                                <p><strong style={{ color: '#1A1A1A' }}>Name:</strong> {booking.customerInfo.name}</p>
+                                <p><strong style={{ color: '#1A1A1A' }}>Phone:</strong> {booking.customerInfo.phone}</p>
+                                <p><strong style={{ color: '#1A1A1A' }}>Email:</strong> {booking.customerInfo.email}</p>
                                 {booking.customerInfo.notes && (
-                                  <p><strong style={{ color: '#000' }}>Notes:</strong> {booking.customerInfo.notes}</p>
+                                  <p><strong style={{ color: '#1A1A1A' }}>Notes:</strong> {booking.customerInfo.notes}</p>
                                 )}
                               </div>
                             </div>
@@ -2109,19 +2017,19 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                               <div className="border-top pt-4">
                                 <div className="d-flex justify-content-between mb-2">
                                   <span style={{ color: '#6c757d' }}>Services Total:</span>
-                                  <span style={{ color: '#000' }}>
+                                  <span style={{ color: '#1A1A1A' }}>
                                     ₹ {booking.services.reduce((sum, service) => sum + service.price, 0)}
                                   </span>
                                 </div>
                                 {booking.location === 'doorstep' && (
                                   <div className="d-flex justify-content-between mb-2">
                                     <span style={{ color: '#6c757d' }}>Doorstep Service:</span>
-                                    <span style={{ color: '#000' }}>₹ 25</span>
+                                    <span style={{ color: '#1A1A1A' }}>₹ 25</span>
                                   </div>
                                 )}
                                 <div className="d-flex justify-content-between h4 fw-bold border-top pt-2">
-                                  <span style={{ color: '#000' }}>Total Amount:</span>
-                                  <span style={{ color: '#dc3545' }}>₹ {calculateTotal()}</span>
+                                  <span style={{ color: '#1A1A1A' }}>Total Amount:</span>
+                                  <span style={{ color: '#C9A84C' }}>₹ {calculateTotal()}</span>
                                 </div>
                               </div>
                             </div>
@@ -2135,7 +2043,7 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                               onClick={() => {
                                 handlePayment();
                               }}
-                              className="btn btn-danger text-white fw-bold px-4"
+                              className="btn btn-barber-primary text-white fw-bold px-4"
                             >
                               Confirm Booking
                             </button>
@@ -2363,3 +2271,4 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
 };
 
 export default SingleBarberPage;
+

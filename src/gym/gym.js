@@ -714,27 +714,26 @@ const Gym = ({ user, setUser, points, setPoints }) => {
           <div className="hero-overlay"></div>
           <Container className="position-relative">
             <Row className="align-items-center min-vh-50">
-              <Col lg={6} className="text-center text-lg-start">
-                <h1 className="display-4 fw-bold mb-4" data-aos="fade-right">
-                  Transform Your <span className="pp">Body</span>
+              <Col lg={12} className="text-center mx-auto" style={{ maxWidth: "800px" }}>
+                <h1 className="display-4 fw-bold mb-4 text-white" style={{ color: "#fff" }} data-aos="fade-right">
+                  Redefine Your <span className="pp">Limits</span>
                 </h1>
-                <p className="lead mb-4" data-aos="fade-right" data-aos-delay="200">
-                  Join KOVAIS Gym and embark on your fitness journey with modern equipment,
-                  expert trainers, and a supportive community in Gobichettipalayam.
+                <p className="lead mb-4 text-white" style={{ color: "rgba(255,255,255,0.9)" }} data-aos="fade-right" data-aos-delay="200">
+                  Experience absolute luxury and elite performance. Join KOVAIS Gym for state-of-the-art equipment, master trainers, and an exclusive fitness sanctuary.
                 </p>
                 <div className="hero-stats mb-4" data-aos="fade-up" data-aos-delay="400">
                   <Row className="text-center">
                     <Col xs={4}>
                       <h3 className="pp mb-1"><FaTrophy /> 500+</h3>
-                      <small>Happy Members</small>
+                      <small className="text-white" style={{ color: "#fff" }}>Happy Members</small>
                     </Col>
                     <Col xs={4}>
                       <h3 className="pp mb-1"><FaFire /> 3+</h3>
-                      <small>Years Experience</small>
+                      <small className="text-white" style={{ color: "#fff" }}>Years Experience</small>
                     </Col>
                     <Col xs={4}>
                       <h3 className="pp mb-1"><FaAward /> 24/7</h3>
-                      <small>Support</small>
+                      <small className="text-white" style={{ color: "#fff" }}>Support</small>
                     </Col>
                   </Row>
                 </div>
@@ -759,13 +758,7 @@ const Gym = ({ user, setUser, points, setPoints }) => {
                   View Gallery
                 </Button>
               </Col>
-              <Col lg={6} className="text-center" data-aos="fade-left" data-aos-delay="800">
-                <img
-                  src="https://img.freepik.com/free-photo/young-fitness-man-studio_7502-5008.jpg"
-                  alt="Gym Hero"
-                  className="img-fluid rounded-4 shadow-lg gym-hero-image ken-burns-img"
-                />
-              </Col>
+              
             </Row>
           </Container>
         </section>
@@ -775,32 +768,30 @@ const Gym = ({ user, setUser, points, setPoints }) => {
           <Container>
             <Row className="text-center mb-5">
               <Col>
-                <h2 className="display-6 fw-bold mb-4" data-aos="fade-up" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  Why Choose <span className="pp" style={{ fontFamily: 'Playfair Display, serif' }}>KOVAIS Gym?</span>
+                <h2 className="display-6 fw-bold mb-4 premium-price-card-title" data-aos="fade-up">
+                  Why Choose <span className="pp premium-price-card-title">KOVAIS Gym?</span>
                 </h2>
                 <p className="lead text-muted" data-aos="fade-up" data-aos-delay="200">
-                  Experience fitness like never before with our premium facilities and expert guidance
+                  Unparalleled luxury and state-of-the-art equipment designed for elite performance.
                 </p>
               </Col>
             </Row>
             <Row>
               {gymFeatures.map((feature, index) => (
                 <Col md={6} lg={3} key={index} className="mb-4">
-                  <Card
-                    className="h-100 border-0 shadow-sm gym-feature-card glass-card"
+                  <div
+                    className="premium-feature-card"
                     data-aos="fade-up"
                     data-aos-delay={index * 100}
                   >
-                    <Card.Body className="text-center p-4">
-                      <div className="feature-icon mb-3">
-                        {feature.icon}
-                      </div>
-                      <Card.Title className="feature-title h5 mb-3">{feature.title}</Card.Title>
-                      <Card.Text className="text-muted">
-                        {feature.description}
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
+                    <div className="premium-feature-icon">
+                      {feature.icon}
+                    </div>
+                    <h5 className="premium-feature-title">{feature.title}</h5>
+                    <p className="premium-feature-desc">
+                      {feature.description}
+                    </p>
+                  </div>
                 </Col>
               ))}
             </Row>
@@ -812,18 +803,18 @@ const Gym = ({ user, setUser, points, setPoints }) => {
           <Container>
             <Row className="align-items-center">
               <Col lg={6}>
-                <h2 className="display-6 fw-bold mb-4" data-aos="fade-right">
+                <h2 className="display-6 fw-bold mb-4 text-white" style={{ color: "#fff" }} data-aos="fade-right">
                   Limited Time Offers!
                 </h2>
                 <div className="offer-item mb-4" data-aos="fade-right" data-aos-delay="200">
                   <Badge bg="warning" className="text-dark mb-2 px-3 py-2">New Member Special</Badge>
-                  <h4 className="mb-2">Get 1 Month FREE!</h4>
-                  <p className="mb-0">Join any 6-month or annual plan and get your first month absolutely free.</p>
+                  <h4 className="mb-2 text-white" style={{ color: "#fff" }}>Get 1 Month FREE!</h4>
+                  <p className="mb-0 text-white" style={{ color: "rgba(255,255,255,0.8)" }}>Join any 6-month or annual plan and get your first month absolutely free.</p>
                 </div>
                 <div className="offer-item mb-4" data-aos="fade-right" data-aos-delay="400">
-                  <Badge bg="success" className="mb-2 px-3 py-2">Group Discount</Badge>
-                  <h4 className="mb-2">Bring 3 Friends, Save 25%!</h4>
-                  <p className="mb-0">Special group rates for friends and family joining together.</p>
+                  <Badge className="premium-badge" className="mb-2 px-3 py-2">Group Discount</Badge>
+                  <h4 className="mb-2 text-white" style={{ color: "#fff" }}>Bring 3 Friends, Save 25%!</h4>
+                  <p className="mb-0 text-white" style={{ color: "rgba(255,255,255,0.8)" }}>Special group rates for friends and family joining together.</p>
                 </div>
                 <Button
                   variant="warning"
@@ -850,8 +841,8 @@ const Gym = ({ user, setUser, points, setPoints }) => {
         {/* Select Gender Section */}
         <section id="gender-section" className="py-5">
 
-          <h2 className="text-center display-6 fw-bold mb-5" data-aos="fade-up" style={{ fontFamily: 'Playfair Display, serif' }}>
-            Select Your <span className="pp" style={{ fontFamily: 'Playfair Display, serif' }}>Category</span>
+          <h2 className="text-center display-6 fw-bold mb-5" data-aos="fade-up" className='premium-price-card-title'>
+            Select Your <span className="pp premium-price-card-title">Category</span>
           </h2>
           <Row className="gender-selection justify-content-center">
             <Col xs={10} sm={6} md={4} lg={3}>
@@ -900,8 +891,8 @@ const Gym = ({ user, setUser, points, setPoints }) => {
         {/* Select Age Section */}
         <section className="py-5 bg-light">
           <Container>
-            <h2 className="text-center display-6 fw-bold mb-5" id="target-section" data-aos="fade-up" style={{ fontFamily: 'Playfair Display, serif' }}>
-              Select Your <span className="pp" style={{ fontFamily: 'Playfair Display, serif' }}>Age Group</span>
+            <h2 className="premium-price-card-title text-center display-6 fw-bold mb-5" id="target-section" data-aos="fade-up">
+              Select Your <span className="pp premium-price-card-title">Age Group</span>
             </h2>
             <Row className="age-selection justify-content-center">
               <Col xs={10} sm={6} md={4} lg={3}>
@@ -977,9 +968,9 @@ const Gym = ({ user, setUser, points, setPoints }) => {
           <Container id="dates">
             <h2
               className="text-center display-6 fw-bold mb-5"
-              data-aos="fade-up" style={{ fontFamily: 'Playfair Display, serif' }}
+              data-aos="fade-up" className='premium-price-card-title'
             >
-              Choose Your <span className="pp" style={{ fontFamily: 'Playfair Display, serif' }}>Schedule</span>
+              Choose Your <span className="pp premium-price-card-title">Schedule</span>
             </h2>
 
             <Row>
@@ -1005,7 +996,7 @@ const Gym = ({ user, setUser, points, setPoints }) => {
               <Col md={6} xs={12}>
                 <h4
                   className="text-center mb-4 mt-5 time-slots-title"
-                  data-aos="fade-left" style={{ fontFamily: 'Playfair Display, serif' }}
+                  data-aos="fade-left" className='premium-price-card-title'
                 >
                   Available Time Slots
                 </h4>
@@ -1047,129 +1038,129 @@ const Gym = ({ user, setUser, points, setPoints }) => {
         {/* Membership Plans */}
         <section className="py-5 bg-light" id="membershipplanssection">
           <Container>
-            <h2 className='text-center display-6 fw-bold mb-5' id="plan" data-aos="fade-up" style={{ fontFamily: 'Playfair Display, serif' }}>
-              Choose Your <span className="pp" style={{ fontFamily: 'Playfair Display, serif' }}>Membership Plan</span>
+            <h2 className='text-center display-6 fw-bold mb-5' id="plan" data-aos="fade-up" className='premium-price-card-title'>
+              Choose Your <span className="pp premium-price-card-title">Membership Plan</span>
             </h2>
             <Row className="justify-content-center text-center membership-plans">
 
               {/* Monthly */}
               <Col md={6} lg={3} className="mb-4">
-                <Card
-                  className={`gym-membership-card glass-card h-100 ${selectedAmount === '399' ? 'selected' : ''}`}
+                <div
+                  className={`premium-price-card h-100 ${selectedAmount === '399' ? 'selected' : ''}`}
                   onClick={() => handlePlanClick('399', '1 /Month')}                // data-aos="fade-up"
                 >
-                  <Card.Body className="d-flex flex-column">
+                  <div className="d-flex flex-column h-100">
                     <div className="plan-header mb-4">
                       <FaDumbbell size={30} className="pp mb-3" />
-                      <h5 className="plan-title" style={{ fontFamily: 'Playfair Display, serif' }}>Monthly Plan</h5>
+                      <h5 className="plan-title" className='premium-price-card-title'>Monthly Plan</h5>
                       <div className="plan-price">
-                        <h1 className="price">₹399<span className="period">/ months</span> </h1>
+                        <h1 className="premium-price">₹399<span className="premium-period">/ months</span> </h1>
 
                       </div>
                     </div>
-                    <ul className="plan-features text-start flex-grow-1">
+                    <ul className="premium-plan-features text-start flex-grow-1">
                       <li>✔ Access to all gym facilities</li>
                       <li>✔ Unlimited group classes</li>
                       <li>✔ Locker facility</li>
                       <li>✔ Free Wi-Fi</li>
                     </ul>
                     <Button
-                      variant={selectedAmount === '399' ? 'warning' : 'outline-warning'}
+                      variant={selectedAmount === '399' ? 'warning' : 'outline-dark'}
                       className="mt-auto"
                     >
                       {selectedAmount === '399' ? 'Selected' : 'Choose Plan'}
                     </Button>
-                  </Card.Body>
-                </Card>
+                  </div>
+                </div>
               </Col>
 
               {/* Quarterly */}
               <Col md={6} lg={3} className="mb-4">
-                <Card
-                  className={`gym-membership-card h-100 ${selectedAmount === '1099' ? 'selected' : ''}`}
+                <div
+                  className={`premium-price-card h-100 ${selectedAmount === '1099' ? 'selected' : ''}`}
                   onClick={() => handlePlanClick('1099', '3 /Months')}
                 // data-aos="fade-up"
                 // data-aos-delay="200"
                 >
-                  <Card.Body className="d-flex flex-column">
+                  <div className="d-flex flex-column h-100">
                     <div className="plan-header mb-4">
                       <FaUsers size={30} className="text-warning mb-3" />
-                      <h5 className="plan-title" style={{ fontFamily: 'Playfair Display, serif' }}>Quarterly Plan</h5>
+                      <h5 className="plan-title" className='premium-price-card-title'>Quarterly Plan</h5>
                       <div className="plan-price">
-                        <h1 className="price">₹1099<span className="period">/3 months</span> </h1>
+                        <h1 className="premium-price">₹1099<span className="premium-period">/3 months</span> </h1>
 
                       </div>
                       <Badge bg="warning" className="mt-2">Save 8%</Badge>
                     </div>
-                    <ul className="plan-features text-start flex-grow-1">
+                    <ul className="premium-plan-features text-start flex-grow-1">
                       <li>✔ All Monthly benefits</li>
                       <li>✔ 1 Personal training session/month</li>
                       <li>✔ Nutrition consultation</li>
                       <li>✔ Priority booking</li>
                     </ul>
                     <Button
-                      variant={selectedAmount === '1099' ? 'warning' : 'outline-warning'}
+                      variant={selectedAmount === '1099' ? 'warning' : 'outline-dark'}
                       className="mt-auto"
                     >
                       {selectedAmount === '1099' ? 'Selected' : 'Choose Plan'}
                     </Button>
-                  </Card.Body>
-                </Card>
+                  </div>
+                </div>
               </Col>
 
               {/* Semi-Annual */}
               <Col md={6} lg={3} className="mb-4">
-                <Card
-                  className={`gym-membership-card h-100 ${selectedAmount === '2199' ? 'selected' : ''}`}
+                <div
+                  className={`premium-price-card h-100 ${selectedAmount === '2199' ? 'selected' : ''}`}
                   onClick={() => handlePlanClick('2199', '6 /Months')}
 
                 // data-aos="fade-up"
                 // data-aos-delay="400"
                 >
-                  <Card.Body className="d-flex flex-column">
+                  <div className="d-flex flex-column h-100">
                     <div className="plan-header mb-4">
                       <FaAward size={30} className="text-warning mb-3" />
-                      <h5 className="plan-title" style={{ fontFamily: 'Playfair Display, serif' }}>Semi-Annual Plan</h5>
+                      <h5 className="plan-title" className='premium-price-card-title'>Semi-Annual Plan</h5>
                       <div className="plan-price">
-                        <h1 className="price">₹2199<span className="period">/6 months</span></h1>
+                        <h1 className="premium-price">₹2199<span className="premium-period">/6 months</span></h1>
 
                       </div>
                       <Badge bg="warning" className="mt-2">Save 15%</Badge>
                     </div>
-                    <ul className="plan-features text-start flex-grow-1">
+                    <ul className="premium-plan-features text-start flex-grow-1">
                       <li>✔ All Quarterly benefits</li>
                       <li>✔ 2 Personal training sessions/month</li>
                       <li>✔ Guest pass (2/month)</li>
                       <li>✔ Free workout gear</li>
                     </ul>
                     <Button
-                      variant={selectedAmount === '2199' ? 'warning' : 'outline-warning'}
+                      variant={selectedAmount === '2199' ? 'warning' : 'outline-dark'}
                       className="mt-auto"
                     >
                       {selectedAmount === '2199' ? 'Selected' : 'Choose Plan'}
                     </Button>
-                  </Card.Body>
-                </Card>
+                  </div>
+                </div>
               </Col>
               {/* Annual */}
               <Col md={6} lg={3} className="mb-4">
-                <Card
-                  className={`gym-membership-card best-value h-100 ${selectedAmount === '4099' ? 'selected' : ''}`}
+                <div
+                  className={`premium-price-card h-100 ${selectedAmount === '4099' ? 'selected' : ''}`}
                   onClick={() => handlePlanClick('4099', '1 /Year')}
                 // data-aos-delay="600"
                 >
-                  <Card.Body className="d-flex flex-column ">
+                  <div className="d-flex flex-column h-100">
                     <div className="best-value-badge">BEST VALUE</div>
                     <div className="plan-header mb-4">
                       <FaTrophy size={30} className="text-accent mb-3" />
-                      <h5 className="plan-title" style={{ fontFamily: 'Playfair Display, serif' }}>Annual Plan</h5>
+                      <h5 className="plan-title" className='premium-price-card-title'>Annual Plan</h5>
                       <div className="plan-price">
-                        <h1 className="price">₹4099<span className="period">/ year</span> </h1>
+                        <h1 className="premium-price">₹4099<span className="premium-period">/ year</span> </h1>
 
                       </div>
                       <Badge bg="dark" className="mt-2">Save 25%</Badge>
                     </div>
-                    <ul className="plan-features text-start flex-grow-1">
+                    <ul className="premium-plan-features text-start flex-grow-1">
                       <li>✔ All Semi-Annual benefits</li>
                       <li>✔ Unlimited personal training</li>
                       <li>✔ Diet plan included</li>
@@ -1177,13 +1168,13 @@ const Gym = ({ user, setUser, points, setPoints }) => {
                       <li>✔ Free supplement consultation</li>
                     </ul>
                     <Button
-                      variant={selectedAmount === '4099' ? 'dark' : 'outline-danger'}
+                      variant={selectedAmount === '4099' ? 'warning' : 'outline-dark'}
                       className="mt-auto"
                     >
                       {selectedAmount === '4099' ? 'Selected' : 'Choose Plan'}
                     </Button>
-                  </Card.Body>
-                </Card>
+                  </div>
+                </div>
               </Col>
 
             </Row>
@@ -1195,10 +1186,10 @@ const Gym = ({ user, setUser, points, setPoints }) => {
           <Container>
             <Row className="text-center mb-5">
               <Col>
-                <h2 className="display-6 fw-bold mb-4" data-aos="fade-up" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  Success <span className="pp" style={{ fontFamily: 'Playfair Display, serif' }}>Stories</span>
+                <h2 className="display-6 fw-bold mb-4 premium-price-card-title" data-aos="fade-up">
+                  Success <span className="pp premium-price-card-title">Stories</span>
                 </h2>
-                <p className="lead text-muted" data-aos="fade-up" data-aos-delay="200">
+                <p className="lead premium-section-subtitle" data-aos="fade-up" data-aos-delay="200">
                   Real transformations from our amazing members
                 </p>
               </Col>
@@ -1206,27 +1197,27 @@ const Gym = ({ user, setUser, points, setPoints }) => {
             <Row>
               {successStories.map((story, index) => (
                 <Col md={4} key={index} className="mb-4">
-                  <Card
-                    className="h-100 border-0 shadow-lg success-story-card glass-card"
+                  <div
+                    className="premium-testimonial-card"
                     data-aos="fade-up"
                     data-aos-delay={index * 200}
                   >
-                    <Card.Img
-                      variant="top"
+                    <img
                       src={story.image}
-                      className="success-story-img"
+                      alt={story.name}
+                      className="premium-testimonial-img"
                     />
-                    <Card.Body className="text-center">
-                      <Card.Title className="h5 mb-2">{story.name}</Card.Title>
-                      <Badge bg="success" className="mb-3">{story.achievement}</Badge>
-                      <Card.Text className="text-muted fst-italic">
+                    <div className="premium-testimonial-body">
+                      <h5 className="premium-testimonial-title">{story.name}</h5>
+                      <span className="premium-badge mb-3">{story.achievement}</span>
+                      <p className="premium-testimonial-text">
                         "{story.testimonial}"
-                      </Card.Text>
-                      <div className="rating text-warning mb-2">
+                      </p>
+                      <div className="premium-rating mb-2">
                         {'★'.repeat(5)}
                       </div>
-                    </Card.Body>
-                  </Card>
+                    </div>
+                  </div>
                 </Col>
               ))}
             </Row>
@@ -1234,11 +1225,11 @@ const Gym = ({ user, setUser, points, setPoints }) => {
         </section>
 
         {/* Call to Action Section */}
-        <section className="py-5 bg-warning text-white" data-aos="zoom-in">
+        <section className="py-5 premium-cta text-white" data-aos="zoom-in">
           <Container>
             <Row className="text-center">
               <Col>
-                <h2 className="display-6 fw-bold mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Ready to Transform Your Life?</h2>
+                <h2 className="display-6 fw-bold mb-4 premium-price-card-title">Ready to Transform Your Life?</h2>
                 <p className="lead mb-4">
                   Join hundreds of satisfied members who have achieved their fitness goals at KOVAIS Gym.
                 </p>
@@ -1249,7 +1240,7 @@ const Gym = ({ user, setUser, points, setPoints }) => {
                     disabled={!isProceedEnabled}
                     onClick={() => handlePayment()}
                     className="text-dark fw-bold px-5 py-3"
-                    style={{backgroundColor:"#ffffffff", color:"#000000ff"}}
+                    style={{backgroundColor:"#ffffffff", color:"#1A1A1Aff"}}
                   >
                     <FaDumbbell className="me-2" />
                     {isProceedEnabled ? 'Proceed to Join' : 'Complete Selection Above'}
@@ -1463,3 +1454,7 @@ const Gym = ({ user, setUser, points, setPoints }) => {
 };
 
 export default Gym;
+
+
+
+

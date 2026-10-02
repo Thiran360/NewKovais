@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Navbar, Nav, Container, Modal, Form, Button, InputGroup, Tabs, Tab, Alert } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import Swal from 'sweetalert2';
 
@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 import logo from "./Image/logo.jpg";
 
 // Import Icons
-import { FaHotel, FaCut, FaSpa, FaDumbbell, FaUser, FaLock, FaEye, FaEyeSlash, FaPhoneAlt, FaChevronDown, FaInfoCircle, FaShieldAlt, FaFileContract, FaMoneyBillWave, FaPaintBrush } from "react-icons/fa";
+import { FaHotel, FaCut, FaSpa, FaDumbbell, FaUser, FaLock, FaEye, FaEyeSlash, FaPhoneAlt, FaChevronDown, FaInfoCircle, FaShieldAlt, FaFileContract, FaMoneyBillWave, FaPaintBrush, FaGlassCheers, FaPrayingHands } from "react-icons/fa";
 import { ImProfile } from "react-icons/im";
 import { BsArrowDownRightSquareFill } from "react-icons/bs";
 import { MdWorkHistory } from "react-icons/md";
@@ -19,6 +19,8 @@ import "./Header.css";
 
 function Header({ user, setUser, points, setPoints }) {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isHotelScreen = location.pathname === '/search-results';
 
   // --- State Management ---
   // const [points, setPoints] = useState(0);
@@ -213,7 +215,7 @@ function Header({ user, setUser, points, setPoints }) {
       Swal.fire({ icon: "success", title: "Login Successful!", timer: 1500, showConfirmButton: false });
       setTimeout(() => { setShowLoginModal(false); }, 500);
     } catch (error) {
-      setErrorMessage("Invalid credentials.");
+      setErrorMessage(error.response ? "Backend rejected login: " + JSON.stringify(error.response.data) : "Network Error: Cannot connect to API.");
     } finally {
       setLoading(false);
     }
@@ -257,8 +259,8 @@ function Header({ user, setUser, points, setPoints }) {
     { path: "/spa", icon: FaSpa, label: "Spa Center" },
     { path: "/parlour", icon: FaPaintBrush, label: "Parlour" },
     { path: "/gym", icon: FaDumbbell, label: "Gym" },
-    { path: "/function", icon: FaCut, label: "Function" },
-    { path: "/funeral", icon: FaCut, label: "Funeral" }
+    { path: "/function", icon: FaGlassCheers, label: "Function" },
+    { path: "/funeral", icon: FaPrayingHands, label: "Funeral" }
   ];
 
   const profileItems = [
@@ -268,7 +270,7 @@ function Header({ user, setUser, points, setPoints }) {
   ];
 
   return (
-    <header className={`modern-header ${scrolled ? 'scrolled' : ''}`}>
+    <header className={`modern-header ${scrolled ? 'scrolled' : ''} ${isHotelScreen ? 'glassy-header' : ''}`}>
       <Navbar expand="lg" className="modern-navbar" expanded={expanded} onToggle={handleNavbarToggle}>
         <Container className="navbar-container">
           
@@ -520,3 +522,9 @@ function Header({ user, setUser, points, setPoints }) {
 }
 
 export default Header;
+
+
+
+
+
+

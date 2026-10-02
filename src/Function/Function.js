@@ -1015,27 +1015,7 @@ const SingleBarberPage = ({ user, setUser, points, setPoints, setAadhar }) => {
                 </button>
               </motion.div>
 
-              <motion.div
-                className="hero-stats-display"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-              >
-                {stats.map((stat, index) => (
-                  <motion.div
-                    key={stat.label}
-                    className="stat-item-box"
-                    whileHover={{ scale: 1.1 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8 + index * 0.1 }}
-                  >
-                    <stat.icon className="stat-icon-element" />
-                    <div className="stat-value-number">{stat.value}</div>
-                    <div className="stat-label-text">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </motion.div>
+
             </motion.div>
 
             <motion.div

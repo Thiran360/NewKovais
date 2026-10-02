@@ -125,16 +125,16 @@ function Contact() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="h-100"
                 >
-                  <Card className="contact-info-card h-100 border-0 shadow-lg text-center p-4" data-aos="fade-up">
-                    <div className="contact-icon-wrapper bg-light rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-3 p-3">
+                  <Card className="contact-info-card h-100 border-0 shadow-sm text-center p-3" data-aos="fade-up">
+                    <div className="contact-icon-wrapper bg-light rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-2 p-2">
                       {info.icon}
                     </div>
-                    <Card.Body>
-                      <h5 className="fw-bold mb-3">{info.title}</h5>
+                    <Card.Body className="p-2">
+                      <h6 className="fw-bold mb-2">{info.title}</h6>
                       {info.details.map((detail, idx) => (
-                        <p key={idx} className="mb-1 fw-semibold text-dark">{detail}</p>
+                        <p key={idx} className="mb-1 fw-semibold text-dark" style={{ fontSize: '0.85rem', wordBreak: 'break-word' }}>{detail}</p>
                       ))}
-                      <p className="text-muted small mt-2">{info.description}</p>
+                      <p className="text-muted mt-2 mb-0" style={{ fontSize: '0.75rem' }}>{info.description}</p>
                     </Card.Body>
                   </Card>
                 </motion.div>
@@ -149,11 +149,11 @@ function Contact() {
         <Container>
           <Row>
             <Col lg={8} className="mx-auto">
-              <Card className="shadow-lg border-0" data-aos="fade-up">
-                <Card.Body className="p-5">
-                  <div className="text-center mb-4">
-                    <h3 className="fw-bold mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>Send Us a Message</h3>
-                    <p className="text-muted">
+              <Card className="shadow-sm border-0" data-aos="fade-up">
+                <Card.Body className="p-4">
+                  <div className="text-center mb-3">
+                    <h4 className="fw-bold mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>Send Us a Message</h4>
+                    <p className="text-muted small">
                       Fill out the form below and we'll get back to you within 24 hours
                     </p>
                   </div>
@@ -235,9 +235,7 @@ function Contact() {
                       <Col xs={12} className="text-center mt-4">
                         <Button 
                           type="submit" 
-                          variant="dark" 
-                          size="lg" 
-                          className="rounded-pill px-5 py-3 fw-semibold"
+                          className="btn-submit"
                         >
                           <FaPaperPlane className="me-2" />
                           Send Message
@@ -253,82 +251,70 @@ function Contact() {
       </section>
 
       {/* Footer */}
-      <footer className="footer py-5 bg-dark text-white border-top border-secondary">
+      <footer className="footer py-5 border-top" style={{ backgroundColor: '#1a1a1a', borderColor: '#333' }}>
         <Container>
-          <Row className="g-4">
-            <Col lg={4} md={6} className="mb-4">
-              <h5 className="fw-bold mb-3 text-accent">Kovais</h5>
-              <p className="text-light mb-4">
+          <Row className="g-4 mb-4">
+            <Col lg={4} md={6}>
+              <h4 className="fw-bold mb-3" style={{ color: '#daa520', fontFamily: 'Playfair Display, serif' }}>Kovais</h4>
+              <p className="text-light opacity-75 mb-4 pe-lg-4" style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
                 Your trusted partner for luxury hospitality, wellness, and grooming services. 
                 Experience excellence with us.
               </p>
               <Button 
-                variant="dark" 
-                className="rounded-pill px-4"
+                variant="outline-light" 
+                className="rounded-pill px-4 btn-sm fw-semibold"
+                style={{ borderColor: 'rgba(218, 165, 32, 0.5)', color: '#daa520' }}
                 onClick={() => navigate('/')}
               >
                 Back to Home
               </Button>
             </Col>
-            <Col lg={4} md={6} className="mb-4">
-              <h6 className="fw-semibold mb-3">Quick Contact</h6>
-              <div className="contact-info">
-                <div className="d-flex align-items-center mb-2">
-                  <FaPhone className="me-2 text-accent" size={16} />
-                  <span>+91 9234567891</span>
+            <Col lg={4} md={6}>
+              <h6 className="fw-semibold mb-4 text-white text-uppercase" style={{ letterSpacing: '0.05em' }}>Quick Contact</h6>
+              <div>
+                <div className="d-flex align-items-center mb-3">
+                  <FaPhone className="me-3" style={{ color: '#daa520' }} size={16} />
+                  <span className="text-light opacity-75 small">+91 9234567891</span>
                 </div>
-                <div className="d-flex align-items-center mb-2">
-                  <FaEnvelope className="me-2 text-accent" size={16} />
-                  <span>info@kovaisbeauty.com</span>
+                <div className="d-flex align-items-center mb-3">
+                  <FaEnvelope className="me-3" style={{ color: '#daa520' }} size={16} />
+                  <span className="text-light opacity-75 small">info@kovaisbeauty.com</span>
                 </div>
                 <div className="d-flex align-items-start">
-                  <FaMapMarkerAlt className="me-2 text-accent mt-1" size={16} />
-                  <span>097, SH 15, Otthakkuthirai, Gobichettipalayam, Tamil Nadu 638455</span>
+                  <FaMapMarkerAlt className="me-3 mt-1" style={{ color: '#daa520' }} size={16} />
+                  <span className="text-light opacity-75 small">097, SH 15, Otthakkuthirai, Gobichettipalayam, Tamil Nadu 638455</span>
                 </div>
               </div>
             </Col>
-            <Col lg={4} md={12} className="mb-4">
-              <h6 className="fw-semibold mb-3">Business Hours</h6>
-              <div className="business-hours">
-                <div className="d-flex justify-content-between mb-2">
-                  <span>Monday - Sunday:</span>
-                  <span className="text-success fw-semibold">6:00 AM - 11:00 PM</span>
+            <Col lg={4} md={12}>
+              <h6 className="fw-semibold mb-4 text-white text-uppercase" style={{ letterSpacing: '0.05em' }}>Business Hours</h6>
+              <div>
+                <div className="d-flex justify-content-between mb-3 border-bottom pb-2" style={{ borderColor: 'rgba(255,255,255,0.05) !important' }}>
+                  <span className="text-light opacity-50 small">Monday - Sunday</span>
+                  <span className="text-light fw-semibold small">6:00 AM - 11:00 PM</span>
                 </div>
-                <div className="d-flex justify-content-between mb-2">
-                  <span>Hotel Reception:</span>
-                  <span className="text-warning fw-semibold">24/7 Available</span>
+                <div className="d-flex justify-content-between mb-3 border-bottom pb-2" style={{ borderColor: 'rgba(255,255,255,0.05) !important' }}>
+                  <span className="text-light opacity-50 small">Hotel Reception</span>
+                  <span className="text-light fw-semibold small" style={{ color: '#daa520' }}>24/7 Available</span>
                 </div>
                 <div className="d-flex justify-content-between">
-                  <span>Emergency Contact:</span>
-                  <span className="text-info fw-semibold">Always Available</span>
+                  <span className="text-light opacity-50 small">Emergency Contact</span>
+                  <span className="text-light fw-semibold small">Always Available</span>
                 </div>
               </div>
             </Col>
           </Row>
           
-          {/* THIRAN360AI Payment Processor Notice */}
-          <Row className="mt-4">
-            <Col xs={12}>
-              <div className="payment-processor-notice text-center py-3 border-top border-secondary">
-                <div className="d-flex align-items-center justify-content-center mb-2">
-                  <FaCreditCard className="text-info me-2" size={20} />
-                  <span className="fw-semibold text-light">Secure Payment Processing</span>
-                </div>
-                <p className="mb-1 small">
-                  All payments are securely processed by THIRAN360AI
-                </p>
-                <p className="mb-0 small">
-                  Payment processor: THIRAN360AI (Cashfree)
-                </p>
-              </div>
-            </Col>
-          </Row>
+          <hr className="my-4" style={{ borderColor: 'rgba(255,255,255,0.1)' }} />
           
-          <hr className="my-4 border-secondary" />
-          <div className="text-center">
-            <p className="mb-0 ">
-              &copy; 2024 KOVAIS. All Rights Reserved. | Designed with ❤ for Excellence
+          <div className="d-flex flex-column flex-md-row justify-content-between align-items-center pt-2">
+            <p className="mb-3 mb-md-0 text-light opacity-50" style={{ fontSize: '0.8rem' }}>
+              &copy; 2024 KOVAIS. All Rights Reserved. | Designed with <span style={{color: '#daa520'}}>❤</span> for Excellence
             </p>
+            <div className="d-flex align-items-center text-light opacity-75" style={{ fontSize: '0.8rem' }}>
+              <FaCreditCard className="me-2" style={{color: '#daa520'}} size={16} />
+              <span>Payments securely processed by <strong className="text-white">THIRAN360AI</strong> (Cashfree)</span>
+            </div>
           </div>
         </Container>
       </footer>

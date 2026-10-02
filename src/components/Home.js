@@ -1,314 +1,324 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Container, Row, Col, Card, Button, Carousel } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import img1 from '../img/img (1).jpeg';
-import img2 from '../img/img (2).jpeg';
-import img3 from '../img/img (3).jpeg';
-import img from './Function.jpeg';
-import img4 from '../img/img (4).jpeg';
-import funeral from './funeral.jpeg'
+import img1 from '../img/premium_hotel.jpg';
+import img2 from '../img/premium_spa.jpg';
+import img3 from '../img/premium_barber.jpg';
+import funeral from './funeral.jpeg';
 import Function from './Functions.jpeg';
-import 'loading-attribute-polyfill';
+
+import premium_dining from '../img/premium_dining.jpg';
+import premium_pool from '../img/premium_pool.jpg';
+import gal_hotel from '../img/gallery_hotel.jpg';
+import gal_salon from '../img/gallery_salon.jpg';
+import gal_gym_pic from '../img/gym_premium.jpg';
+import gal_grooming from '../img/gallery_grooming.jpg';
+import gal_special from '../img/gallery_special_new.jpg';
+import gal_function from '../img/gallery_function_new.jpg';
+
 import banner1 from './kovaisWebBanner/1.jpg';
 import banner2 from './kovaisWebBanner/2.jpg';
 import banner3 from './kovaisWebBanner/3.png';
+import banner4 from '../img/banner4.jpg';
+import banner5 from '../img/banner5.jpg';
+import banner6 from '../img/banner6.jpg';
+
 import testimonial1 from '../img/testimonial1.png';
 import testimonial2 from '../img/testimonial2.png';
 import testimonial3 from '../img/testimonial3.png';
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaMapMarkerAlt, FaStar, FaDownload, FaChevronRight, FaArrowRight } from 'react-icons/fa';
-import '../Carousel.css'
-import "./Home.css";
-import { FaClock, FaUsers, FaHeart, FaWhatsapp, FaPhoneAlt, FaEnvelope, FaMapMarker, FaLeaf, FaAward, FaShieldAlt } from "react-icons/fa";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
-// Counter animation hook
-function useCounter(target, duration = 2000, startOnView = true) {
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { FaFacebook, FaInstagram, FaTwitter, FaMapMarkerAlt, FaStar, FaArrowRight, FaClock, FaUsers, FaHeart, FaWhatsapp, FaPhoneAlt, FaEnvelope, FaAward } from 'react-icons/fa';
+import '../Carousel.css';
+import "./Home.css";
+
+// Counter Hook
+function useCounter(target, duration = 2000) {
   const [count, setCount] = useState(0);
-  const [started, setStarted] = useState(false);
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
+  const inView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
 
   useEffect(() => {
-    if (inView && !started) {
-      setStarted(true);
-      let start = 0;
-      const step = target / (duration / 16);
-      const timer = setInterval(() => {
-        start += step;
-        if (start >= target) {
-          setCount(target);
-          clearInterval(timer);
-        } else {
-          setCount(Math.floor(start));
-        }
-      }, 16);
-      return () => clearInterval(timer);
-    }
-  }, [inView, started, target, duration]);
+    if (!inView) return;
+    let start = 0;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+    return () => clearInterval(timer);
+  }, [inView, target, duration]);
 
-  return { count, ref };
+  return { count: count === 0 && !inView ? target : count, ref };
 }
 
-// Stat Item Component
 function StatItem({ value, suffix, label, icon }) {
   const numericValue = parseInt(value);
   const { count, ref } = useCounter(numericValue);
 
   return (
-    <div ref={ref} className="stat-item">
-      <div className="stat-icon">{icon}</div>
-      <h3 className="stat-number">
-        {count}{suffix}
-      </h3>
-      <p className="stat-label">{label}</p>
+    <div ref={ref} className="glass-stat-item">
+      <div className="glass-stat-icon">{icon}</div>
+      <h3 className="glass-stat-number">{count}{suffix}</h3>
+      <p className="glass-stat-label">{label}</p>
     </div>
   );
 }
 
 function Home({ user }) {
   const navigate = useNavigate();
-  const currentUser = user || JSON.parse(localStorage.getItem("loggedInUser"));
-  const [activeService, setActiveService] = useState(null);
-  const [carouselIndex, setCarouselIndex] = useState(0);
-  const heroRef = useRef(null);
-  const { scrollY } = useScroll();
-  const parallaxY = useTransform(scrollY, [0, 500], [0, -80]);
-
-  const handleNavigation = (path) => navigate(path);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const banners = [banner1, banner2, banner4, banner5, banner6];
 
   useEffect(() => {
-    AOS.init({ duration: 900, easing: 'ease-out-cubic', once: true, offset: 80 });
-    const preloadImages = [banner2, banner3];
-    preloadImages.forEach(src => {
-      const imgEl = new Image();
-      imgEl.src = src;
-    });
-  }, []);
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % banners.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [banners.length]);
 
-  const testimonials = [
-    { id: 1, name: "Rajesh Kumar", role: "Hotel Guest", comment: "An unparalleled experience. The staff anticipated every need before I even asked. This is what true luxury feels like.", rating: 5, image: testimonial1 },
-    { id: 2, name: "Priya Suresh", role: "Spa Client", comment: "The spa treatments left me completely rejuvenated. The ambiance, the therapists, the products — absolutely world-class.", rating: 5, image: testimonial2 },
-    { id: 3, name: "Vikram Mohan", role: "Regular Member", comment: "I've been coming to Kovais for two years. The consistency of quality and the personal attention keeps me coming back.", rating: 5, image: testimonial3 },
-  ];
+  const handleNavigation = (path) => navigate(path);
+  const scrollToOffer = () => document.getElementById('bookings')?.scrollIntoView({ behavior: 'smooth' });
 
+  // Data
   const services = [
-    { title: "Luxury Hotel", shortDesc: "Book your sanctuary.", fullDesc: "Experience world-class comfort in our meticulously curated rooms. Every detail has been thoughtfully designed to provide an unparalleled stay.", image: img1, path: "/search-results", tag: "Accommodation" },
-    { title: "Wellness Spa", shortDesc: "Restore your essence.", fullDesc: "Immerse yourself in therapeutic rituals drawn from ancient traditions. Our expert therapists craft bespoke treatments for your complete renewal.", image: img2, path: "/spa", tag: "Wellness" },
-    { title: "Fitness Studio", shortDesc: "Elevate your form.", fullDesc: "State-of-the-art equipment meets elite personal training. Achieve your peak performance in our premium fitness environment.", image: img4, path: "/gym", tag: "Fitness" },
-    { title: "Grooming Salon", shortDesc: "Refine your look.", fullDesc: "Master barbers blend classic techniques with contemporary styles. Step in, transform, and step out as the best version of yourself.", image: img3, path: "/barber", tag: "Grooming" },
-    { title: "Funeral Service", shortDesc: "Dignified, compassionate care.", fullDesc: "Providing respectful and compassionate grooming services during mourning periods, at your home or our salon, with the utmost sensitivity.", image: funeral, path: "/funeral", tag: "Special Care" },
-    { title: "Function Service", shortDesc: "Celebrate in style.", fullDesc: "Look your absolute finest for life's most memorable occasions. Our function grooming service ensures you are impeccably presented.", image: Function, path: "/function", tag: "Events" },
-  ];
-
-  const scrollToOffer = () => {
-    document.getElementById('bookings')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const galleryItems = [
-    { image: img1, caption: "Grand Suite" },
-    { image: img2, caption: "Spa Retreat" },
-    { image: img3, caption: "Grooming Studio" },
-    { image: img4, caption: "Fitness Centre" },
-    { image: funeral, caption: "Special Services" },
-    { image: Function, caption: "Function Prep" },
+    { title: "Luxury Hotel", shortDesc: "Book your sanctuary.", fullDesc: "Experience world-class comfort in our meticulously curated rooms.", image: img1, path: "/search-results", tag: "Accommodation" },
+    { title: "Wellness Spa", shortDesc: "Restore your essence.", fullDesc: "Immerse yourself in therapeutic rituals drawn from ancient traditions.", image: img2, path: "/spa", tag: "Wellness" },
+    { title: "Grooming Salon", shortDesc: "Refine your look.", fullDesc: "Master barbers blend classic techniques with contemporary styles.", image: img3, path: "/barber", tag: "Grooming" },
+    { title: "Funeral Service", shortDesc: "Dignified care.", fullDesc: "Providing respectful and compassionate grooming services.", image: funeral, path: "/funeral", tag: "Special Care" },
+    { title: "Function Service", shortDesc: "Celebrate in style.", fullDesc: "Look your absolute finest for life's most memorable occasions.", image: Function, path: "/function", tag: "Events" },
+    { title: "Fitness Gym", shortDesc: "Transform your body.", fullDesc: "Achieve your fitness goals with state-of-the-art equipment.", image: gal_gym_pic, path: "/gym", tag: "Fitness" },
   ];
 
   const processSteps = [
-    { step: "01", title: "Choose Your Service", desc: "Browse our curated range of luxury services and select what speaks to you." },
-    { step: "02", title: "Book Your Slot", desc: "Pick a convenient time with our seamless online booking system." },
-    { step: "03", title: "Arrive & Unwind", desc: "Walk in and let our expert team take care of everything else." },
-    { step: "04", title: "Leave Transformed", desc: "Depart refreshed, refined, and ready to conquer the world." },
+    { step: "01", title: "Discover", desc: "Browse our curated range of luxury services." },
+    { step: "02", title: "Reserve", desc: "Pick a convenient time with our seamless system." },
+    { step: "03", title: "Experience", desc: "Walk in and let our expert team take care of everything." },
+    { step: "04", title: "Transform", desc: "Depart refreshed, refined, and ready to conquer." },
   ];
 
-  const awards = [
-    { icon: <FaAward size={28} />, title: "Best Luxury Salon", year: "2023", org: "Tamil Nadu Hospitality Awards" },
-    { icon: <FaShieldAlt size={28} />, title: "Excellence in Service", year: "2022", org: "South India Wellness Council" },
-    { icon: <FaLeaf size={28} />, title: "Eco-Friendly Practices", year: "2023", org: "Green Business Initiative" },
+  const galleryItems = [
+    { image: gal_hotel, caption: "Grand Suite" },
+    { image: gal_salon, caption: "Grooming Studio" },
+    { image: gal_gym_pic, caption: "Fitness Centre" },
+    { image: gal_grooming, caption: "Spa Retreat" },
+    { image: gal_special, caption: "Special Services" },
+    { image: gal_function, caption: "Function Prep" },
+    { image: premium_dining, caption: "Fine Dining" },
+    { image: premium_pool, caption: "Wellness Pool" },
+  ];
+
+  const testimonials = [
+    { name: "Rajesh Kumar", role: "Hotel Guest", comment: "An unparalleled experience. The staff anticipated every need before I even asked.", rating: 5, image: testimonial1 },
+    { name: "Priya Suresh", role: "Spa Client", comment: "The spa treatments left me completely rejuvenated. Truly world-class.", rating: 5, image: testimonial2 },
+    { name: "Vikram Mohan", role: "Regular Member", comment: "The consistency of quality and personal attention keeps me coming back.", rating: 5, image: testimonial3 },
+    { name: "Deepa Ramesh", role: "Bridal Client", comment: "Every detail was perfect. The team made me feel like royalty.", rating: 5, image: testimonial1 },
+    { name: "Arjun Selvam", role: "Gym Member", comment: "Top-notch fitness centre. Modern equipment and motivating atmosphere.", rating: 5, image: testimonial2 },
   ];
 
   return (
-    <>
-      {/* ─── HERO CAROUSEL ─── */}
-      <section className="hero-section" id="home">
-        <Carousel
-          className="hero-carousel"
-          interval={4500}
-          pause={false}
-          controls
-          indicators
-          activeIndex={carouselIndex}
-          onSelect={setCarouselIndex}
-        >
-          {[banner1, banner2, banner3].map((banner, i) => (
-            <Carousel.Item key={i}>
-              <div className="hero-slide">
-                <img
-                  className="hero-img"
-                  src={banner}
-                  alt={`Kovais Banner ${i + 1}`}
-                  loading={i === 0 ? "eager" : "lazy"}
-                  fetchpriority={i === 0 ? "high" : "auto"}
-                  decoding="async"
-                />
-                <div className="hero-overlay" />
-                <div className="hero-caption">
-                  <motion.span
-                    className="hero-eyebrow"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.7 }}
-                  >
-                    Est. 2014 · Coimbatore's Finest
-                  </motion.span>
-                  <motion.h1
-                    className="hero-title"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4, duration: 0.8 }}
-                  >
-                    Where Luxury <br />Meets <em>Wellness</em>
-                  </motion.h1>
-                  <motion.p
-                    className="hero-subtitle"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6, duration: 0.7 }}
-                  >
-                    Premium hospitality, spa, grooming & fitness — all under one roof.
-                  </motion.p>
-                  <motion.div
-                    className="hero-actions"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8, duration: 0.6 }}
-                  >
-                    <button className="btn-hero-primary" onClick={scrollToOffer}>
-                      Book a Service <FaArrowRight style={{ marginLeft: 8 }} />
-                    </button>
-                    <button className="btn-hero-secondary" onClick={() => handleNavigation('/contact')}>
-                      Contact Us
-                    </button>
-                  </motion.div>
-                </div>
-              </div>
-            </Carousel.Item>
-          ))}
-        </Carousel>
+    <div className="home-2026-wrapper">
+      {/* ─── HERO SECTION ─── */}
+      <section className="hero-2026" id="home">
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={currentSlide}
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '-100%' }}
+            transition={{ duration: 1, ease: 'easeInOut' }}
+            className="hero-bg-slide"
+            style={{ backgroundImage: `url(${banners[currentSlide]})` }}
+          />
+        </AnimatePresence>
+        <div className="hero-overlay-2026" />
 
-        {/* Scroll indicator */}
-        <div className="scroll-indicator">
-          <div className="scroll-dot" />
+        <AnimatePresence>
+          {currentSlide === 2 && (
+            <motion.div 
+              key="spa-text"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.6 }}
+              className="dynamic-banner-text"
+            >
+              <div className="dynamic-word-large">PURE</div>
+              <div className="dynamic-word-large">SERENITY</div>
+              <div className="dynamic-badge">KOVAIS SPA</div>
+            </motion.div>
+          )}
+          {currentSlide === 3 && (
+            <motion.div 
+              key="hotel-text"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.6 }}
+              className="dynamic-banner-text"
+            >
+              <div className="dynamic-word-large">GRAND</div>
+              <div className="dynamic-word-large">LIVING</div>
+              <div className="dynamic-badge">KOVAIS HOTEL</div>
+            </motion.div>
+          )}
+          {currentSlide === 4 && (
+            <motion.div 
+              key="saloon-text"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.6 }}
+              className="dynamic-banner-text"
+            >
+              <div className="dynamic-word-large">MASTER</div>
+              <div className="dynamic-word-large">GROOMING</div>
+              <div className="dynamic-badge">KOVAIS SALOON</div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <div className="hero-content-2026">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="hero-text-wrapper"
+          >
+            <div className="hero-btn-group">
+              <button className="btn-glow-primary" onClick={scrollToOffer}>
+                Book Experience <FaArrowRight />
+              </button>
+              <button className="btn-glass-secondary" onClick={() => handleNavigation('/contact')}>
+                Contact Us
+              </button>
+            </div>
+          </motion.div>
+        </div>
+        
+        <div className="hero-slider-dots">
+          {banners.map((_, i) => (
+            <button
+              key={i}
+              className={`slider-dot ${i === currentSlide ? 'active' : ''}`}
+              onClick={() => setCurrentSlide(i)}
+            />
+          ))}
         </div>
       </section>
 
-      {/* ─── MARQUEE STRIP ─── */}
-      <div className="marquee-strip">
-        <div className="marquee-track">
+      {/* ─── INFINITE MARQUEE ─── */}
+      <div className="marquee-2026">
+        <div className="marquee-content">
           {["Luxury Hotel", "Wellness Spa", "Fitness Studio", "Master Grooming", "Special Care", "Function Services", "Luxury Hotel", "Wellness Spa", "Fitness Studio", "Master Grooming", "Special Care", "Function Services"].map((item, i) => (
-            <span key={i} className="marquee-item">
-              <span className="marquee-dot">◆</span> {item}
+            <span key={i} className="marquee-text">
+              <span className="marquee-star">✧</span> {item}
             </span>
           ))}
         </div>
       </div>
 
-      {/* ─── WHY KOVAIS ─── */}
-      <section className="why-section py-5">
-        <Container>
-          <Row className="align-items-center g-5">
-            <Col lg={5}>
-              <div data-aos="fade-right">
-                <span className="section-tag">Our Story</span>
-                <h2 className="section-heading mt-2">
-                  A Decade of <span className="accent-text">Exceptional</span> Service
-                </h2>
-                <p className="section-body">
-                  Since 2014, Kovais has redefined luxury in Coimbatore. We believe every visit should leave you feeling elevated — not just served. Our philosophy blends warm Tamil hospitality with world-class standards.
-                </p>
-                <div className="feature-grid mt-4">
-                  {[
-                    { icon: <FaStar />, title: "Premium Quality", desc: "Only the finest products and techniques" },
-                    { icon: <FaClock />, title: "Always Available", desc: "Round-the-clock service excellence" },
-                    { icon: <FaUsers />, title: "Expert Professionals", desc: "Trained & certified specialists" },
-                    { icon: <FaHeart />, title: "Guest First", desc: "Your comfort is our obsession" },
-                  ].map((f, i) => (
-                    <motion.div
-                      key={i}
-                      className="feature-pill"
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.12, duration: 0.5 }}
-                      viewport={{ once: true }}
-                    >
-                      <span className="feature-pill-icon">{f.icon}</span>
-                      <div>
-                        <strong>{f.title}</strong>
-                        <p>{f.desc}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+      {/* ─── WHY KOVAIS SECTION (BENTO BOX) ─── */}
+      <section className="about-2026">
+        <Container fluid="xl">
+          <div className="bento-grid-2026">
+            {/* Box 1: Manifesto */}
+            <motion.div 
+              className="bento-box manifesto-box"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="section-tag-2026" style={{ alignSelf: 'flex-start' }}>The Kovais Standard</div>
+              <h2 className="bento-title">A Decade of <span className="gold-text">Uncompromising</span> Luxury.</h2>
+              <p className="bento-desc">
+                Born in 2014 out of a desire to redefine hospitality in Coimbatore. We are more than a brand; we are a sanctuary for those who appreciate the finest details in grooming, wellness, and stay.
+              </p>
+            </motion.div>
+
+            {/* Box 2: Image Box */}
+            <motion.div 
+              className="bento-box image-box"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <img src={gal_hotel} alt="Luxury Interior" className="bento-img" />
+              <div className="bento-img-overlay">
+                <h4>Where Elegance Meets Comfort</h4>
               </div>
-            </Col>
-            <Col lg={7}>
-              <div className="stats-card-grid" data-aos="fade-left">
-                <StatItem value={10} suffix="+" label="Years of Excellence" icon={<FaAward />} />
-                <StatItem value={5000} suffix="+" label="Happy Guests" icon={<FaUsers />} />
-                <StatItem value={6} suffix="" label="Premium Services" icon={<FaStar />} />
-                <StatItem value={24} suffix="/7" label="Always Open" icon={<FaClock />} />
+            </motion.div>
+
+            {/* Box 3: Stats */}
+            <motion.div 
+              className="bento-box stats-bento"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="bento-stat-row">
+                <StatItem value={10} suffix="+" label="Years of Mastery" icon={<FaAward />} />
+                <StatItem value={5000} suffix="+" label="Elite Members" icon={<FaUsers />} />
               </div>
-            </Col>
-          </Row>
+            </motion.div>
+
+            {/* Box 4: Features */}
+            <motion.div 
+              className="bento-box features-bento"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <h4 className="bento-subtitle">The Kovais Promise</h4>
+              <ul className="bento-feature-list">
+                <li><FaStar className="gold-text" /> World-Class Aesthetics</li>
+                <li><FaHeart className="gold-text" /> Unrivaled Personal Care</li>
+                <li><FaClock className="gold-text" /> 24/7 Concierge Support</li>
+              </ul>
+            </motion.div>
+          </div>
         </Container>
       </section>
 
-      {/* ─── SERVICES ─── */}
-      <section className="services-section py-5" id="bookings">
+      {/* ─── SERVICES SECTION ─── */}
+      <section className="services-2026" id="bookings">
         <Container fluid="xl">
-          <div className="text-center mb-5" data-aos="fade-up">
-            <span className="section-tag">What We Offer</span>
-            <h2 className="section-heading mt-2">
-              Our Premium <span className="accent-text">Services</span>
+          <div className="text-center mb-5">
+            <div className="section-tag-2026 mx-auto">Discover</div>
+            <h2 className="section-title-2026 text-center">
+              Curated <span className="gold-text">Experiences</span>
             </h2>
-            <p className="section-subheading">
-              Curated experiences designed to exceed every expectation
-            </p>
           </div>
-
           <Row className="g-4">
-            {services.map((service, index) => (
-              <Col xl={4} lg={4} md={6} sm={12} key={index}>
+            {services.map((srv, idx) => (
+              <Col lg={4} md={6} key={idx}>
                 <motion.div
-                  initial={{ opacity: 0, y: 60 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.08 }}
                   viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1, duration: 0.6 }}
                   className="h-100"
                 >
-                  <div
-                    className={`service-card-new h-100 ${activeService === index ? 'active' : ''}`}
-                    onClick={() => handleNavigation(service.path)}
-                    onMouseEnter={() => setActiveService(index)}
-                    onMouseLeave={() => setActiveService(null)}
-                  >
-                    <div className="service-img-wrap">
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="service-img-new"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <span className="service-tag-badge">{service.tag}</span>
-                      <div className="service-img-overlay" />
+                  <div className="glass-service-card" onClick={() => handleNavigation(srv.path)}>
+                    <div className="service-img-container">
+                      <img src={srv.image} alt={srv.title} className="service-img-2026" />
+                      <div className="service-badge-2026">{srv.tag}</div>
                     </div>
-                    <div className="service-body">
-                      <h4 className="service-title-new">{service.title}</h4>
-                      <p className="service-desc-new">{service.fullDesc}</p>
-                      <button className="service-cta">
-                        Book Now <FaChevronRight size={12} style={{ marginLeft: 6 }} />
+                    <div className="service-content-2026">
+                      <h4 className="service-title">{srv.title}</h4>
+                      <p className="service-desc">{srv.fullDesc}</p>
+                      <button className="service-btn-2026">
+                        Explore <FaArrowRight />
                       </button>
                     </div>
                   </div>
@@ -320,28 +330,27 @@ function Home({ user }) {
       </section>
 
       {/* ─── HOW IT WORKS ─── */}
-      <section className="process-section py-5">
+      <section className="process-2026">
         <Container>
-          <div className="text-center mb-5" data-aos="fade-up">
-            <span className="section-tag">Simple & Seamless</span>
-            <h2 className="section-heading mt-2">
-              How It <span className="accent-text">Works</span>
+          <div className="text-center mb-5">
+            <div className="section-tag-2026 mx-auto">Seamless Journey</div>
+            <h2 className="section-title-2026 text-center">
+              How It <span className="gold-text">Works</span>
             </h2>
           </div>
-          <Row className="g-4 justify-content-center">
+          <Row className="g-4">
             {processSteps.map((step, i) => (
               <Col lg={3} md={6} key={i}>
                 <motion.div
-                  className="process-card"
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.15, duration: 0.6 }}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
+                  transition={{ delay: i * 0.15, duration: 0.5 }}
+                  className="process-glass-card"
                 >
-                  <div className="process-number">{step.step}</div>
-                  {i < processSteps.length - 1 && <div className="process-connector" />}
-                  <h5 className="process-title">{step.title}</h5>
-                  <p className="process-desc">{step.desc}</p>
+                  <div className="process-step-num">{step.step}</div>
+                  <h5 className="process-title-2026">{step.title}</h5>
+                  <p className="process-desc-2026">{step.desc}</p>
                 </motion.div>
               </Col>
             ))}
@@ -349,243 +358,129 @@ function Home({ user }) {
         </Container>
       </section>
 
-      {/* ─── GALLERY STRIP ─── */}
-      <section className="gallery-section">
-        <div className="text-center mb-4 pt-5" data-aos="fade-up">
-          <span className="section-tag">Visual Journey</span>
-          <h2 className="section-heading mt-2">
-            Inside <span className="accent-text">Kovais</span>
+      {/* ─── GALLERY ─── */}
+      <section className="gallery-2026">
+        <div className="text-center mb-5">
+          <div className="section-tag-2026 mx-auto">Visuals</div>
+          <h2 className="section-title-2026 text-center">
+            Inside <span className="gold-text">Kovais</span>
           </h2>
         </div>
-        <div className="gallery-grid">
+        <div className="gallery-grid-2026">
           {galleryItems.map((item, i) => (
-            <motion.div
-              key={i}
-              className="gallery-item"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.07, duration: 0.5 }}
+            <motion.div 
+              key={i} 
+              className="gallery-item-2026"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.03 }}
+              transition={{ delay: i * 0.1 }}
             >
-              <img src={item.image} alt={item.caption} loading="lazy" decoding="async" />
-              <div className="gallery-caption">{item.caption}</div>
+              <img src={item.image} alt={item.caption} />
+              <div className="gallery-overlay-2026">
+                <span>{item.caption}</span>
+              </div>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* ─── AWARDS ─── */}
-      <section className="awards-section py-5">
-        <Container>
-          <div className="text-center mb-5" data-aos="fade-up">
-            <span className="section-tag">Recognition</span>
-            <h2 className="section-heading mt-2">
-              Awards & <span className="accent-text">Accolades</span>
-            </h2>
-          </div>
-          <Row className="g-4 justify-content-center">
-            {awards.map((award, i) => (
-              <Col lg={4} md={6} key={i}>
-                <motion.div
-                  className="award-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.15, duration: 0.6 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -8 }}
-                >
-                  <div className="award-icon">{award.icon}</div>
-                  <h5 className="award-title">{award.title}</h5>
-                  <span className="award-year">{award.year}</span>
-                  <p className="award-org">{award.org}</p>
-                </motion.div>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      </section>
-
       {/* ─── TESTIMONIALS ─── */}
-      <section className="testimonials-section py-5">
+      <section className="testimonials-2026">
         <Container>
-          <div className="text-center mb-5" data-aos="fade-up">
-            <span className="section-tag">Guest Voices</span>
-            <h2 className="section-heading mt-2">
-              What Our <span className="accent-text">Guests</span> Say
+          <div className="text-center mb-5">
+            <div className="section-tag-2026 mx-auto">Voices</div>
+            <h2 className="section-title-2026 text-center">
+              Guest <span className="gold-text">Stories</span>
             </h2>
           </div>
-          <Row className="g-4">
-            {testimonials.map((t, i) => (
-              <Col md={4} key={t.id}>
-                <motion.div
-                  className="testimonial-card-new"
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.15, duration: 0.6 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -6 }}
-                >
-                  <div className="testimonial-quote-mark">"</div>
-                  <p className="testimonial-text">{t.comment}</p>
-                  <div className="testimonial-stars mb-3">
-                    {[...Array(5)].map((_, j) => (
-                      <FaStar key={j} className={j < t.rating ? "star-filled" : "star-empty"} />
-                    ))}
+          <div className="testimonial-track-container">
+            <div className="testimonial-track">
+              {[...testimonials, ...testimonials].map((t, i) => (
+                <div className="testimonial-glass-card" key={i}>
+                  <div className="quote-mark">"</div>
+                  <p className="testimonial-text-2026">{t.comment}</p>
+                  <div className="stars-2026">
+                    {[...Array(5)].map((_, j) => <FaStar key={j} className={j < t.rating ? "gold-star" : "gray-star"} />)}
                   </div>
-                  <div className="testimonial-author">
-                    <img src={t.image} alt={t.name} className="testimonial-avatar" loading="lazy" />
+                  <div className="testimonial-user">
+                    <img src={t.image} alt={t.name} />
                     <div>
-                      <strong className="author-name">{t.name}</strong>
-                      <span className="author-role">{t.role}</span>
+                      <h6>{t.name}</h6>
+                      <span>{t.role}</span>
                     </div>
                   </div>
-                </motion.div>
-              </Col>
-            ))}
-          </Row>
+                </div>
+              ))}
+            </div>
+          </div>
         </Container>
       </section>
 
-      {/* ─── CTA BANNER ─── */}
-      <section className="cta-section">
-        <div className="cta-inner">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <span className="cta-eyebrow">Your Journey Starts Here</span>
-            <h2 className="cta-title">
-              Ready to Experience <br />True <em>Kovais</em> Luxury?
-            </h2>
-            <p className="cta-sub">
-              Join thousands of guests who trust Kovais for their wellness and hospitality needs.
-            </p>
-            <div className="cta-buttons">
-              <button className="cta-btn-primary" onClick={scrollToOffer}>
-                Book a Service
-              </button>
-              <button className="cta-btn-secondary" onClick={() => handleNavigation('/contact')}>
-                Get in Touch
-              </button>
-            </div>
-          </motion.div>
+      {/* ─── CTA ─── */}
+      <section className="cta-2026">
+        <div className="cta-glass-box">
+          <h2>Ready for the <span className="gold-text">Ultimate</span> Experience?</h2>
+          <p>Join the elite circle of guests who demand nothing but the best.</p>
+          <button className="btn-glow-primary" onClick={scrollToOffer}>
+            Reserve Now
+          </button>
         </div>
       </section>
 
       {/* ─── FOOTER ─── */}
-      <footer className="footer-new">
-        <Container>
-          <Row className="g-5 pt-5 pb-4">
-
-            {/* Brand */}
-            <Col lg={4} md={12}>
-              <div className="footer-brand-block">
-                <h4 className="footer-logo">Kovais</h4>
-                <p className="footer-tagline">
-                  Coimbatore's premier destination for luxury hospitality, holistic wellness, and expert grooming. Where every visit becomes a memory.
-                </p>
-                <div className="footer-socials">
-                  {[
-                    { icon: <FaFacebook />, href: "https://facebook.com", label: "Facebook" },
-                    { icon: <FaInstagram />, href: "https://instagram.com", label: "Instagram" },
-                    { icon: <FaTwitter />, href: "https://twitter.com", label: "Twitter" },
-                    { icon: <FaWhatsapp />, href: "https://wa.me/919876543210", label: "WhatsApp" },
-                  ].map((s, i) => (
-                    <motion.a
-                      key={i}
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="footer-social-btn"
-                      title={s.label}
-                      whileHover={{ y: -4, scale: 1.1 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {s.icon}
-                    </motion.a>
-                  ))}
-                </div>
+      <footer className="footer-2026">
+        <Container fluid="xl">
+          <Row className="g-5 pb-5 border-bottom-dark">
+            <Col lg={4}>
+              <h3 className="footer-brand-2026">KOVAIS</h3>
+              <p className="footer-desc-2026">
+                The epitome of luxury hospitality and wellness in Coimbatore. Elevating your lifestyle since 2014.
+              </p>
+              <div className="social-links-2026">
+                <a href="#!"><FaFacebook /></a>
+                <a href="#!"><FaInstagram /></a>
+                <a href="#!"><FaTwitter /></a>
+                <a href="#!"><FaWhatsapp /></a>
               </div>
             </Col>
-
-            {/* Services */}
             <Col lg={2} md={4} sm={6}>
-              <h6 className="footer-col-title">Services</h6>
-              <ul className="footer-nav-list">
-                {[["Hotel", "/search-results"], ["Spa", "/spa"], ["Gym", "/gym"], ["Barber", "/barber"], ["Funeral", "/funeral"], ["Function", "/function"]].map(([label, path], i) => (
-                  <li key={i}>
-                    <button className="footer-nav-link" onClick={() => handleNavigation(path)}>
-                      <FaChevronRight size={10} /> {label}
-                    </button>
-                  </li>
-                ))}
+              <h5 className="footer-title-2026">Services</h5>
+              <ul className="footer-links-2026">
+                <li><button onClick={() => handleNavigation('/search-results')}>Luxury Hotel</button></li>
+                <li><button onClick={() => handleNavigation('/spa')}>Wellness Spa</button></li>
+                <li><button onClick={() => handleNavigation('/barber')}>Grooming</button></li>
+                <li><button onClick={() => handleNavigation('/funeral')}>Special Care</button></li>
               </ul>
             </Col>
-
-            {/* Quick Links */}
             <Col lg={2} md={4} sm={6}>
-              <h6 className="footer-col-title">Company</h6>
-              <ul className="footer-nav-list">
-                {[["About Us", "/about"], ["Gallery", "/gallery"], ["Contact", "/contact"], ["Blog", "/blog"], ["Careers", "/careers"]].map(([label, path], i) => (
-                  <li key={i}>
-                    <button className="footer-nav-link" onClick={() => handleNavigation(path)}>
-                      <FaChevronRight size={10} /> {label}
-                    </button>
-                  </li>
-                ))}
+              <h5 className="footer-title-2026">Company</h5>
+              <ul className="footer-links-2026">
+                <li><button onClick={() => handleNavigation('/about')}>About Us</button></li>
+                <li><button onClick={() => handleNavigation('/contact')}>Contact</button></li>
+                <li><button onClick={() => handleNavigation('/gallery')}>Gallery</button></li>
+                <li><button onClick={() => handleNavigation('/careers')}>Careers</button></li>
               </ul>
             </Col>
-
-            {/* Contact */}
             <Col lg={4} md={4}>
-              <h6 className="footer-col-title">Contact Us</h6>
-              <div className="footer-contact-list">
-                <div className="footer-contact-item">
-                  <FaPhoneAlt className="footer-contact-icon" />
-                  <div>
-                    <span className="footer-contact-label">Phone</span>
-                    <span className="footer-contact-value">+91 92345 67891</span>
-                  </div>
-                </div>
-                <div className="footer-contact-item">
-                  <FaWhatsapp className="footer-contact-icon" />
-                  <div>
-                    <span className="footer-contact-label">WhatsApp</span>
-                    <span className="footer-contact-value">+91 92345 67891</span>
-                  </div>
-                </div>
-                <div className="footer-contact-item">
-                  <FaEnvelope className="footer-contact-icon" />
-                  <div>
-                    <span className="footer-contact-label">Email</span>
-                    <span className="footer-contact-value">info@kovaisbeauty.com</span>
-                  </div>
-                </div>
-                <div className="footer-contact-item">
-                  <FaMapMarkerAlt className="footer-contact-icon" />
-                  <div>
-                    <span className="footer-contact-label">Location</span>
-                    <span className="footer-contact-value">Coimbatore, Tamil Nadu</span>
-                  </div>
-                </div>
-              </div>
+              <h5 className="footer-title-2026">Contact</h5>
+              <ul className="footer-contact-2026">
+                <li><FaPhoneAlt /> +91 92345 67891</li>
+                <li><FaEnvelope /> info@kovaisbeauty.com</li>
+                <li><FaMapMarkerAlt /> Coimbatore, Tamil Nadu</li>
+              </ul>
             </Col>
           </Row>
-
-          <div className="footer-bottom">
-            <p>© {new Date().getFullYear()} <span className="footer-brand-name">Kovais</span>. All rights reserved. Crafted with care in Coimbatore.</p>
-            <div className="footer-bottom-links">
-              <button className="footer-bottom-link" onClick={() => handleNavigation('/privacy')}>Privacy Policy</button>
-              <button className="footer-bottom-link" onClick={() => handleNavigation('/terms')}>Terms of Service</button>
+          <div className="footer-bottom-2026 mt-4 d-flex justify-content-between align-items-center flex-wrap">
+            <p className="mb-0">© 2026 Kovais. All rights reserved.</p>
+            <div className="footer-legal">
+              <button onClick={() => handleNavigation('/privacy')}>Privacy Policy</button>
+              <button onClick={() => handleNavigation('/terms')}>Terms of Service</button>
             </div>
           </div>
         </Container>
       </footer>
-    </>
+    </div>
   );
 }
 

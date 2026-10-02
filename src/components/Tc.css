@@ -20,14 +20,16 @@ body {
 
 /* Header Styles */
 .terms-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
   color: white;
   padding: 3rem 0;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #daa520;
 }
 
 .terms-header h1 {
+  color: #daa520;
+  font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
   font-weight: 700;
@@ -88,9 +90,9 @@ body {
 }
 
 .toc-nav a:hover {
-  color: #667eea;
-  border-left-color: #667eea;
-  background-color: #f8f9fe;
+  color: #daa520;
+  border-left-color: #daa520;
+  background-color: rgba(218, 165, 32, 0.05);
 }
 
 /* Terms Article */
@@ -116,7 +118,7 @@ body {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #e9ecef;
+  border-bottom: 2px solid rgba(218, 165, 32, 0.2);
   font-weight: 600;
 }
 
@@ -144,7 +146,7 @@ body {
 
 /* Acceptance Section */
 .acceptance-section {
-  background: #f8f9fe;
+  background: rgba(218, 165, 32, 0.05);
   border-radius: 8px;
   padding: 2rem;
   margin-top: 3rem;
@@ -185,8 +187,8 @@ body {
 }
 
 .checkbox-label input[type="checkbox"]:checked + .checkmark {
-  background-color: #667eea;
-  border-color: #667eea;
+  background-color: #daa520;
+  border-color: #daa520;
 }
 
 .checkbox-label input[type="checkbox"]:checked + .checkmark::after {
@@ -210,7 +212,7 @@ body {
 }
 
 .accept-btn.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
   cursor: pointer;
 }
 
@@ -221,7 +223,7 @@ body {
 
 /* Footer */
 .terms-footer {
-  background: #2c3e50;
+  background: #1a1a1a; border-top: 1px solid rgba(218, 165, 32, 0.2);
   color: white;
   text-align: center;
   padding: 2rem 0;
@@ -309,7 +311,7 @@ body {
 
 .confirm-btn {
   padding: 0.75rem 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #daa520 0%, #764ba2 100%);
   color: white;
   border: none;
   border-radius: 6px;
@@ -338,12 +340,20 @@ body {
 
 @media (max-width: 768px) {
   .terms-header {
-    padding: 2rem 0;
-  }
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+  border-bottom: 2px solid #daa520;
+}
   
   .terms-header h1 {
-    font-size: 2rem;
-  }
+  color: #daa520;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
   
   .content-wrapper {
     grid-template-columns: 1fr;
@@ -380,12 +390,20 @@ body {
   }
   
   .terms-header {
-    padding: 1.5rem 0;
-  }
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+  border-bottom: 2px solid #daa520;
+}
   
   .terms-header h1 {
-    font-size: 1.75rem;
-  }
+  color: #daa520;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
   
   .terms-content {
     padding: 2rem 0;
@@ -417,10 +435,12 @@ body {
 /* Print Styles */
 @media print {
   .terms-header {
-    background: none;
-    color: black;
-    padding: 1rem 0;
-  }
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+  border-bottom: 2px solid #daa520;
+}
   
   .toc-sidebar,
   .acceptance-section,

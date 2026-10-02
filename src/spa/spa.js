@@ -3,10 +3,7 @@ import { Container, Row, Col, Button, Card, Modal, Form, Carousel, InputGroup, T
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './spa.css';
-import spaAmbianceImg from './images/spa_ambiance.png';
-import spaZenImg from './images/spa_zen.png';
-import spaLuxuryImg from './images/spa_luxury.png';
-import spaOilsImg from './images/spa_oils.png';
+import spaBannerImg from './images/spa_banner_lux.jpg';
 import { PaymentPage, ConfirmationPage } from '../components/Payment';
 import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaGoogle, FaFacebook, FaPhoneAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
@@ -735,130 +732,87 @@ const SpaBooking = ({ user, setUser, points, setPoints, setAadhar }) => {
     <div className="spa-booking-page">
       <Container fluid className="spa-container">
 
-        {/* Booking Header */}
-        <section className="booking-header py-5 text-center">
-          <Container>
-            {/* Floating background elements */}
-            <div className="floating-spa-elements">
-              <div className="floating-element element-1">🍃</div>
-              <div className="floating-element element-2">🌿</div>
-              <div className="floating-element element-3">🍀</div>
-              <div className="floating-element element-4">🍂</div>
-              <div className="floating-element element-5">🍁</div>
-              <div className="floating-element element-6">🌸</div>
-              <div className="floating-element element-7">🌺</div>
-              <div className="floating-element element-8">🌹</div>
-              <div className="floating-element element-9">🌷</div>
-              <div className="floating-element element-10">🕯️</div>
-              <div className="floating-element element-11">🕯️</div>
-              <div className="floating-element element-12">🌼</div>
-              <div className="floating-element element-13">💧</div>
-              <div className="floating-element element-14">✨</div>
-              <div className="floating-element element-15">💫</div>
-              <div className="floating-element element-17">💮</div>
-              <div className="floating-element element-16">🏵️</div>
-              <div className="floating-element element-18">💎</div>
-              <div className="floating-element element-19">🕊️</div>
-            </div>
-            <div data-aos="fade-up">
-              <h1 className="display-3 fw-bold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: "#daa520" }}>Book Your Perfect Session</h1>
-              <p className="lead" style={{ color: "#4a3f2f" }}>Choose your preferred services, date, and time for the ultimate spa experience</p>
+        {/* Premium Spa Hero Section */}
+        <section className="spa-hero-section">
+          <div className="spa-hero-overlay"></div>
+          <img src={spaBannerImg} alt="Kovais Spa Luxury" className="spa-hero-bg" />
+          
+          <Container className="position-relative h-100 d-flex flex-column justify-content-center align-items-center text-center z-index-2">
+            <div data-aos="zoom-in" data-aos-duration="1200" className="spa-hero-content-new">
+              <div className="spa-badge mb-4">
+                <span className="spa-badge-dot"></span> KOVAIS SPA & WELLNESS
+              </div>
+              
+              <h1 className="spa-hero-title-new mb-4">
+                Premium <span>Spa</span> <br/> <span>Therapies</span>
+              </h1>
+              
+              <p className="spa-hero-desc mb-5">
+                Premium wellness therapies tailored to your ultimate relaxation. From 
+                deep tissue massages to authentic holistic treatments — experience luxury
+                redefined.
+              </p>
+              
+              <div className="spa-hero-buttons d-flex gap-3 justify-content-center flex-wrap">
+                <button onClick={handleScroll} className="btn-spa-primary">
+                  EXPLORE SERVICES
+                </button>
+                <button onClick={handleScroll} className="btn-spa-outline">
+                  BOOK APPOINTMENT
+                </button>
+              </div>
             </div>
           </Container>
-        </section>
-        {/* Carousel Section */}
-        <section className="carousel-section">
-          <Carousel interval={3000} pause={false} controls={true} indicators={true}>
-            <Carousel.Item>
-              <img
-                className="carousel-img"
-                src={spaZenImg}
-                alt="Zen Stones & Water"
-                style={{ height: 400, width: '100%', objectFit: 'cover' }}
-              />
-              <Carousel.Caption className="carousel-caption-custom">
-                <h3>Relax & Rejuvenate</h3>
-                <p>Experience our signature massage therapies</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="carousel-img"
-                src={spaLuxuryImg}
-                alt="Luxury Spa Room"
-                style={{ height: 400, width: '100%', objectFit: 'cover' }}
-              />
-              <Carousel.Caption className="carousel-caption-custom">
-                <h3>Tranquil Environment</h3>
-                <p>Immerse yourself in our peaceful spa atmosphere</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="carousel-img"
-                src={spaOilsImg}
-                alt="Essential Oils"
-                style={{ height: 400, width: '100%', objectFit: 'cover' }}
-              />
-              <Carousel.Caption className="carousel-caption-custom">
-                <h3>Natural Healing</h3>
-                <p>Premium essential oils and authentic organic therapy</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
         </section>
 
         {/* Gender Selection */}
         <section className="gender-selection-section">
           <Container>
-            <div className="section-header" data-aos="fade-up">
+            <div className="spa-section-header" data-aos="fade-up">
+              <span className="spa-section-tag">Treatments</span>
               <h2>Select Your Preference</h2>
               <p>Choose your preferred treatment category for a personalized spa experience</p>
             </div>
-            <Row className="text-center justify-content-center">
+            <Row className="justify-content-center">
               {[
                 {
                   gender: "Men",
                   image: "https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg",
-                  description: "Specialized treatments for men"
+                  description: "Specialized holistic treatments designed to alleviate muscle tension and restore balance for men."
                 },
                 {
                   gender: "Women",
                   image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg",
-                  description: "Customized wellness for women"
+                  description: "Customized wellness therapies crafted to rejuvenate the mind, body, and spirit for women."
                 }
               ].map(({ gender, image, description }, index) => (
-                <Col key={index} xs={12} sm={6} md={5} lg={4} className="mb-4">
-                  <Card
-                    data-aos="fade-up"
-                    data-aos-delay={index * 100}
+                <Col key={index} xs={12} md={6} lg={5} className="mb-5">
+                  <div 
+                    data-aos="fade-up" 
+                    data-aos-delay={index * 150}
+                    className={`spa-gender-card ${selectedGender === gender ? 'active' : ''}`}
                     onClick={() => {
                       setSelectedGender(gender);
                       handleScroll();
                     }}
-                    className={`gender-selection-card h-100 ${selectedGender === gender ? 'selected' : ''}`}
                   >
-                    <div className="gender-image-container">
-                      <Card.Img
-                        variant="top"
-                        src={image}
-                        alt={gender}
-                        className="gender-image"
-                      />
-                      <div className="gender-overlay">
-                        <h4 className="text-white">{gender}</h4>
-                        <p className="text-white-50">{description}</p>
+                    <div className="spa-gender-img-wrapper">
+                      <img src={image} alt={gender} className="spa-gender-img" />
+                      <div className="spa-gender-overlay"></div>
+                      <h3 className="spa-gender-title">{gender}</h3>
+                    </div>
+                    <div className="spa-gender-content">
+                      <p className="spa-gender-desc">{description}</p>
+                      <div className="spa-gender-select-wrapper">
+                        <span className="spa-gender-select-text">
+                          {selectedGender === gender ? 'SELECTED' : `SELECT ${gender.toUpperCase()}`}
+                        </span>
+                        <div className={`spa-gender-circle ${selectedGender === gender ? 'selected' : ''}`}>
+                          {selectedGender === gender ? '✓' : '→'}
+                        </div>
                       </div>
                     </div>
-                    <Card.Body className="text-center p-3">
-                      <Button
-                        variant={selectedGender === gender ? "success" : "outline-success"}
-                        className="w-100 py-2"
-                      >
-                        Select {gender}
-                      </Button>
-                    </Card.Body>
-                  </Card>
+                  </div>
                 </Col>
               ))}
             </Row>
@@ -868,53 +822,55 @@ const SpaBooking = ({ user, setUser, points, setPoints, setAadhar }) => {
         {/* Service Selection */}
         <section className="service-selection-section" id="target-section">
           <Container>
-            <div className="section-header" data-aos="fade-up">
+            <div className="spa-section-header" data-aos="fade-up">
+              <span className="spa-section-tag">Therapies</span>
               <h2>Choose Your Services</h2>
-              <p>Select multiple services for your perfect spa experience</p>
+              <p>Select multiple premium services for your perfect, tailored spa experience</p>
             </div>
             <Row>
-              {services[selectedGender].map((service, index) => (
-                <Col md={4} key={service.id} className="mb-4">
-                  <Card
-                    data-aos="fade-up"
-                    data-aos-delay={index * 100}
-                    className={`service-selection-card h-100 ${selectedServices.find(selectedService => selectedService?.id === service.id) ? 'selected' : ''
-                      }`}
-                    onClick={() => {
-                      handleSelectService(service);
-                    }}
-                  >
-                    <div className="service-image-container">
-                      <Card.Img variant="top" src={service.imageUrl} className="service-image" />
-                      <div className="service-price-badge">₹{service.amount}</div>
-                      <div className="service-description-overlay">
-                        <p className="text-white small">{service.description}</p>
+              {services[selectedGender] && services[selectedGender].map((service, index) => {
+                const isSelected = selectedServices.find(s => s?.id === service.id);
+                return (
+                  <Col lg={4} md={6} key={service.id} className="mb-4">
+                    <div 
+                      data-aos="fade-up" 
+                      data-aos-delay={index * 100}
+                      className={`spa-service-card ${isSelected ? 'active' : ''}`}
+                      onClick={() => handleSelectService(service)}
+                    >
+                      <div className="spa-service-img-wrapper">
+                        <img src={service.imageUrl} alt={service.name} className="spa-service-img" />
+                        <div className="spa-service-price">₹{service.amount}</div>
+                        {isSelected && (
+                          <div className="spa-service-check">
+                            ✓
+                          </div>
+                        )}
+                      </div>
+                      <div className="spa-service-content">
+                        <h4 className="spa-service-title">{service.name}</h4>
+                        <div className="spa-service-meta">
+                          <span className="spa-service-duration"><i className="far fa-clock"></i> 60 Min</span>
+                        </div>
+                        <p className="spa-service-desc">{service.description}</p>
+                        <button className={`spa-service-btn ${isSelected ? 'selected' : ''}`}>
+                          {isSelected ? 'ADDED TO BOOKING' : 'ADD SERVICE'}
+                        </button>
                       </div>
                     </div>
-                    <Card.Body className="p-4">
-                      <Card.Title className="h5 text-success">{service.name}</Card.Title>
-                      <div className="d-flex justify-content-between align-items-center">
-                        <span className="text-muted">Duration: 60 min</span>
-                        <div className="service-checkbox">
-                          {selectedServices.find(s => s.id === service.id) ? '✓' : '+'}
-                        </div>
-                      </div>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))}
+                  </Col>
+                );
+              })}
             </Row>
 
             {selectedServices.length > 0 && (
-              <div className="text-center mt-4" data-aos="fade-up">
-                <Button
-                  variant="success"
-                  size="lg"
+              <div className="text-center mt-5" data-aos="fade-up">
+                <button
                   onClick={handleScrollDown}
-                  className="px-5 py-3"
+                  className="btn-spa-primary"
                 >
-                  Continue to Date & Time ({selectedServices.length} service{selectedServices.length > 1 ? 's' : ''} selected)
-                </Button>
+                  CONTINUE TO DATE & TIME ({selectedServices.length} SELECTED)
+                </button>
               </div>
             )}
           </Container>
@@ -922,85 +878,77 @@ const SpaBooking = ({ user, setUser, points, setPoints, setAadhar }) => {
 
         {/* Date and Time Selection */}
         <section id="datetime-section" className="datetime-section">
-          <div className="container">
-            <div className="section-header">
-              <h2 className="section-title">Select Date & Time</h2>
-              <p className="section-description">
-                Choose your preferred appointment date and available time slot
-              </p>
+          <Container>
+            <div className="spa-section-header" data-aos="fade-up">
+              <span className="spa-section-tag">Schedule</span>
+              <h2>Select Date & Time</h2>
+              <p>Choose your preferred appointment date and available time slot for your session</p>
             </div>
 
-            <div className="datetime-container">
-              <div className="datetime-grid">
-                {/* Date Selection */}
-                <div className="date-selection">
-                  <h3 className="datetime-subtitle">Select Date</h3>
-                  <div className="date-input-container">
-                    <input
-                      type="date"
-                      value={formatDateForInput(selectedDate)}
-                      onChange={handleDateChange}
-                      min={formatDateForInput(new Date())}
-                      className="date-input"
-                    />
-                    <div className="selected-date-display">
-                      <p className="selected-date-text">
-                        Selected: {selectedDate.toLocaleDateString('en-US', {
-                          weekday: 'long',
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}
-                      </p>
+            <div className="spa-datetime-container" data-aos="fade-up">
+              <Row className="g-0">
+                <Col md={5} className="spa-date-col">
+                  <div className="spa-datetime-panel">
+                    <h3 className="spa-panel-title">1. Select Date</h3>
+                    <div className="spa-date-input-wrapper">
+                      <input
+                        type="date"
+                        value={formatDateForInput(selectedDate)}
+                        onChange={handleDateChange}
+                        min={formatDateForInput(new Date())}
+                        className="spa-date-input"
+                      />
+                    </div>
+                    <div className="spa-selected-date-display">
+                      <span>YOUR SELECTED DATE</span>
+                      <h4>{selectedDate.toLocaleDateString('en-US', {
+                        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+                      })}</h4>
                     </div>
                   </div>
-                </div>
-
-                {/* Time Selection */}
-                <div className="time-selection">
-                  <h3 className="datetime-subtitle">Available Times</h3>
-                  <div className="time-slots-grid">
-                    {availableSlots.map((slot) => {
-                      const isDisabled = isTimeSlotDisabled(slot);
-                      return (
-                        <button
-                          key={slot}
-                          onClick={() => !isDisabled && setSelectedTime(slot)}
-                          disabled={isDisabled}
-                          className={`time-slot ${selectedTime === slot ? 'selected' : ''
-                            } ${isDisabled ? 'disabled' : ''}`}
-                        >
-                          {slot}
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  {isToday(selectedDate) && (
-                    <div className="time-warning">
-                      <p className="time-warning-text">
-                        Past time slots are disabled for today's date.
-                      </p>
+                </Col>
+                
+                <Col md={7} className="spa-time-col">
+                  <div className="spa-datetime-panel">
+                    <h3 className="spa-panel-title">2. Available Times</h3>
+                    <div className="spa-time-grid">
+                      {availableSlots.map((slot) => {
+                        const isDisabled = isTimeSlotDisabled(slot);
+                        const isSelected = selectedTime === slot;
+                        return (
+                          <button
+                            key={slot}
+                            onClick={() => !isDisabled && setSelectedTime(slot)}
+                            disabled={isDisabled}
+                            className={`spa-time-slot ${isSelected ? 'active' : ''} ${isDisabled ? 'disabled' : ''}`}
+                          >
+                            {slot}
+                          </button>
+                        );
+                      })}
                     </div>
-                  )}
-                </div>
-              </div>
+                    {isToday(selectedDate) && (
+                      <p className="spa-time-warning mt-4">
+                        * Past time slots are disabled for today's date.
+                      </p>
+                    )}
+                  </div>
+                </Col>
+              </Row>
             </div>
 
             {selectedTime && selectedServices.length > 0 && (
-              <div className="booking-summary-container">
-
-                <div className="payment-continue">
-                  <button
-                    onClick={handlePayment}
-                    className="payment-btn"
-                  >
-                    Proceed to Payment
-                  </button>
-                </div>
+              <div className="text-center mt-5" data-aos="fade-up">
+                <button
+                  onClick={handlePayment}
+                  className="btn-spa-primary px-5 py-3"
+                  style={{ fontSize: '1.1rem' }}
+                >
+                  PROCEED TO SECURE PAYMENT
+                </button>
               </div>
             )}
-          </div>
+          </Container>
         </section>
 
         {/* Demo Payment Modal */}
@@ -1167,8 +1115,30 @@ const SpaBooking = ({ user, setUser, points, setPoints, setAadhar }) => {
           </Modal.Body>
         </Modal>
       </Container>
-      <footer className="footer">
-        <p>&copy; 2024 KOVAIS. All Rights Reserved. | Contact: 9234567891 | Email: info@kovaisbeauty.com</p>
+      <footer className="spa-footer">
+        <div className="spa-footer-map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15643.088825667954!2d77.4287803!3d11.4593457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba93d7c7fa918b9%3A0x6a0ed7962eb0237!2sKovais%20Gym!5e0!3m2!1sen!2sin!4v1689269415671!5m2!1sen!2sin"
+            width="100%"
+            height="300"
+            style={{ border: 0, borderRadius: '15px' }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <div className="spa-footer-content">
+          <h3 className="spa-footer-title">
+            <i className="fas fa-spa me-2"></i> KOVAIS SPA
+          </h3>
+          <p className="spa-footer-address">
+            097, SH 15, Otthakkuthirai gobichettipalayam Tk, DT, Gobichettipalayam, Tamil Nadu 638455
+          </p>
+          <div className="spa-footer-divider"></div>
+          <p className="spa-footer-copyright">
+            &copy; 2024 KOVAIS. All Rights Reserved. | Contact: 9234567891 | Email: info@kovaisbeauty.com
+          </p>
+        </div>
       </footer>
     </div>
   );

@@ -4,10 +4,10 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Barber from './barber/barber';
 import Spa from './spa/spa';
+import Gym from './gym/gym';
 import Parlour from './parlour/parlour';
 import Hotel from './RoomSearch/RoomSearch';
 import SearchResults from './RoomSearch/SearchResults';
-import Gym from './gym/gym';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Home from './components/Home';
@@ -141,14 +141,14 @@ const App = () => {
         <Route path="/parlour" element={<Parlour user={user} setUser={setUser} points={points} setPoints={setPoints} />} />
         <Route path="/RoomSearch" element={<Hotel />} />
         <Route path="/search-results" element={<SearchResults user={user} setUser={setUser} points={points} setPoints={setPoints} aadhar={aadhar} setAadhar={setAadhar} />} />
-        <Route path="/gym" element={<Gym user={user} setUser={setUser} points={points} setPoints={setPoints} />} />
-        <Route path="/about" element={<About />} />
+                <Route path="/about" element={<About />} />
         <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
         <Route path="/service-info/:id" element={<ServiceInfo />} />
         <Route path="/bookedOrders" element={<BookedOrders user={user} points={points} setPoints={setPoints} />} />
         <Route path="/history" element={<History points={points} setPoints={setPoints} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path='/funeral' element={<Funeral user={user} setUser={setUser} points={points} setPoints={setPoints} />} />
+        <Route path='/gym' element={<Gym user={user} setUser={setUser} points={points} setPoints={setPoints} />} />
         <Route path='/function' element={<Function user={user} setUser={setUser} points={points} setPoints={setPoints} />} />
         <Route path="/form" element={<Form user={user} setUser={setUser} />} />
         <Route path='/terms' element={<TermsAndConditions/>} />
@@ -162,3 +162,7 @@ const App = () => {
 };
 
 export default App;
+
+
+
+

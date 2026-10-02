@@ -511,11 +511,11 @@ html {
 }
 
 .membership-plans .gym-membership-card .card-body {
-  padding: 2.5rem 1.5rem;
+  padding: 1.5rem 1rem;
 }
 
 .membership-plans .gym-membership-card .plan-header {
-  min-height: 120px;
+  min-height: 80px;
 }
 
 .membership-plans .gym-membership-card .plan-title {
@@ -550,7 +550,7 @@ html {
 }
 
 .membership-plans .gym-membership-card .plan-features li {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   font-size: 0.95rem;
   color: #4a3f2f;
   transition: all 0.3s ease;
@@ -1538,4 +1538,351 @@ button:hover:not(:disabled), .btn:hover:not(:disabled) {
 /* MOBILE RESPONSIVE */
 @media(max-width:600px){
   .gym-payment-options{grid-template-columns:1fr;}
+}
+
+
+
+/* ──────────────────────────────────────────────
+   NEW PREMIUM GYM UI (Charcoal, Gold, Ivory)
+   ────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Cinzel:wght@400;500;600&display=swap');
+
+body {
+  background-color: #FDFAF4 !important; /* Ivory */
+}
+
+.gym-container {
+  font-family: 'DM Sans', sans-serif !important;
+  background-color: #FDFAF4 !important; /* Ivory */
+  color: #1A1A1A !important;
+}
+
+.gym-hero-section {
+  background-image: url('./Img/gym_banner_1.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  position: relative;
+  min-height: 80vh !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(26,26,26,0.92) 0%, rgba(26,26,26,0.65) 100%) !important;
+  position: absolute !important;
+  inset: 0 !important;
+}
+
+.pp {
+  color: #C9A84C !important; /* Premium Gold */
+  font-family: 'Cinzel', serif !important;
+  font-weight: 600 !important;
+}
+
+h1, h2, h3, h4, h5, h6, .display-4 {
+  font-family: 'Cormorant Garamond', serif !important;
+}
+
+/* Overriding the ugly feature cards from screenshot */
+.gym-feature-card, .glass-card {
+  background-color: #1A1A1A !important;
+  border: 1px solid rgba(201,168,76,0.2) !important;
+  border-radius: 12px !important;
+  transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1) !important;
+  overflow: hidden !important;
+}
+
+.gym-feature-card:hover, .glass-card:hover {
+  transform: translateY(-8px) !important;
+  border-color: #C9A84C !important;
+  box-shadow: 0 16px 48px rgba(201,168,76,0.2) !important;
+}
+
+.gym-feature-card .feature-title, .feature-title {
+  color: #C9A84C !important; /* Gold text */
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.8rem !important;
+  margin-top: 15px !important;
+}
+
+.gym-feature-card .text-muted, .text-muted {
+  color: #F5ECD7 !important; /* Pale Gold for desc */
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+/* Icons */
+.feature-icon svg {
+  color: #C9A84C !important;
+  filter: drop-shadow(0 4px 6px rgba(201,168,76,0.3)) !important;
+}
+
+/* Buttons */
+.btn-gym-primary {
+  background-color: #C9A84C !important;
+  border: 1px solid #C9A84C !important;
+  color: #1A1A1A !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 600 !important;
+  border-radius: 30px !important;
+  padding: 12px 30px !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 8px 25px rgba(201, 168, 76, 0.25) !important;
+}
+
+.btn-gym-primary:hover {
+  background-color: transparent !important;
+  border-color: #C9A84C !important;
+  color: #C9A84C !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 30px rgba(201, 168, 76, 0.4) !important;
+}
+
+/* Global Utility Replacements */
+.text-gold, .text-warning {
+  color: #C9A84C !important;
+}
+
+.bg-gold {
+  background-color: #C9A84C !important;
+  color: #1A1A1A !important;
+}
+
+.border-gold {
+  border-color: #C9A84C !important;
+}
+
+/* Forms and Modals */
+.modal-content {
+  background-color: #FDFAF4 !important;
+  border: 2px solid #C9A84C !important;
+  border-radius: 16px !important;
+}
+.modal-header {
+  border-bottom: 1px solid rgba(201,168,76,0.3) !important;
+  background-color: #1A1A1A !important;
+}
+.modal-title {
+  color: #C9A84C !important;
+  font-family: 'Cormorant Garamond', serif !important;
+}
+.modal-header .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%) !important;
+}
+
+.form-control, .form-select {
+  border: 1px solid rgba(26,26,26,0.2) !important;
+  background-color: #fff !important;
+  color: #1A1A1A !important;
+  border-radius: 8px !important;
+}
+.form-control:focus, .form-select:focus {
+  border-color: #C9A84C !important;
+  box-shadow: 0 0 0 0.25rem rgba(201,168,76,0.25) !important;
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+  background-color: #1A1A1A !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(201,168,76,0.15) !important;
+  padding: 30px !important;
+}
+.testimonial-card h5 {
+  color: #C9A84C !important;
+}
+.testimonial-card .text-muted {
+  color: #F5ECD7 !important;
+}
+
+/* Make general texts dark on light backgrounds */
+p, span, div {
+  /* color: #1A1A1A; (Avoid overriding everything globally to prevent breaking inner components, let utility classes handle it) */
+}
+
+/* Hard replacement for the feature cards to completely avoid legacy overrides */
+.premium-feature-card {
+  background-color: #1A1A1A !important; /* Force Charcoal background */
+  border: 1px solid rgba(201,168,76,0.3) !important; /* Gold border */
+  border-radius: 12px !important;
+  padding: 30px 20px !important;
+  text-align: center !important;
+  height: 100% !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2) !important;
+  transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94) !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.premium-feature-card:hover {
+  transform: translateY(-10px) !important;
+  border-color: #C9A84C !important;
+  box-shadow: 0 16px 48px rgba(201,168,76,0.25) !important;
+}
+
+.premium-feature-icon {
+  margin-bottom: 20px !important;
+}
+
+.premium-feature-icon svg {
+  color: #C9A84C !important;
+  font-size: 3rem !important;
+  filter: drop-shadow(0 4px 6px rgba(201,168,76,0.3)) !important;
+}
+
+.premium-feature-title {
+  color: #C9A84C !important; /* Force Gold text */
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.8rem !important;
+  margin-bottom: 15px !important;
+  font-weight: 600 !important;
+}
+
+.premium-feature-desc {
+  color: #F5ECD7 !important; /* Force Pale Gold text */
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+}
+
+
+/* ──────────────────────────────────────────────
+   PREMIUM TESTIMONIALS & PRICING
+   ────────────────────────────────────────────── */
+
+.premium-testimonial-card {
+  background-color: #1A1A1A !important;
+  border: 1px solid rgba(201,168,76,0.2) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  height: 100% !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+.premium-testimonial-card:hover {
+  transform: translateY(-8px) !important;
+  border-color: #C9A84C !important;
+}
+
+.premium-testimonial-img {
+  width: 100% !important;
+  height: 220px !important;
+  object-fit: cover !important;
+  border-bottom: 2px solid #C9A84C !important;
+}
+
+.premium-testimonial-body {
+  padding: 25px !important;
+  text-align: center !important;
+}
+
+.premium-testimonial-title {
+  color: #FDFAF4 !important; /* Ivory, NOT Green! */
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.6rem !important;
+  margin-bottom: 10px !important;
+}
+
+.premium-badge {
+  background-color: #C9A84C !important;
+  color: #1A1A1A !important;
+  padding: 6px 14px !important;
+  border-radius: 30px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  display: inline-block !important;
+}
+
+.premium-testimonial-text {
+  color: #F5ECD7 !important; /* Pale Gold */
+  font-style: italic !important;
+  margin-top: 15px !important;
+}
+
+/* Pricing Cards */
+.premium-price-card {
+  background-color: #1A1A1A !important;
+  border: 1px solid rgba(201,168,76,0.2) !important;
+  border-radius: 16px !important;
+  padding: 30px !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
+  color: #FDFAF4 !important;
+}
+
+.premium-price-card h4 {
+  color: #FDFAF4 !important; /* Make "Monthly Plan" white/ivory instead of dark */
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.8rem !important;
+  margin-bottom: 20px !important;
+}
+
+.premium-price-card .premium-price {
+  color: #C9A84C !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 3.5rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 20px !important;
+}
+
+.premium-price-card .premium-period {
+  font-size: 1.2rem !important;
+  color: #F5ECD7 !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+.premium-price-card:hover, .premium-price-card.selected {
+  border-color: #C9A84C !important;
+  box-shadow: 0 16px 40px rgba(201,168,76,0.2) !important;
+  transform: translateY(-8px) !important;
+}
+
+/* Fix any remaining green text inside pricing */
+.premium-price-card .text-success, 
+.premium-price-card .text-danger {
+  color: #C9A84C !important;
+}
+
+
+.premium-price-card-title {
+  color: #FDFAF4 !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.8rem !important;
+  margin-bottom: 10px !important;
+}
+
+.premium-plan-features {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 20px 0 !important;
+  color: #F5ECD7 !important;
+}
+
+.premium-plan-features li {
+  margin-bottom: 10px !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+
+.premium-section-subtitle {
+  color: #1A1A1A !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 500 !important;
+}
+
+.premium-rating {
+  color: #C9A84C !important;
+  font-size: 1.2rem !important;
+  letter-spacing: 2px !important;
+}
+
+.premium-cta {
+  background-color: #1A1A1A !important;
+  border-top: 2px solid #C9A84C !important;
 }
